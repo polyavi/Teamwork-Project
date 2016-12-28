@@ -2,27 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-import { TeamsService } from './../core/services/teams.service';
+import { RouterModule, Routes } from '@angular/router';
+import { APP_ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
-import { ViewTeamsComponent } from './view-teams/view-teams.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { TeamsModule } from './teams';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    ViewTeamsComponent,
-    HeaderComponent,
-    FooterComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    TeamsModule,
+    RouterModule.forRoot(APP_ROUTES),
   ],
-  providers: [TeamsService],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

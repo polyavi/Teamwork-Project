@@ -1,5 +1,5 @@
-import { TeamsService } from './../../core/services/teams.service';
-import { Team } from './../../core/models/team';
+import { TeamsService } from './../../../core/services/teams.service';
+import { Team } from './../../../core/models/team';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

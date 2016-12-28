@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  selectedItemName: String;
 
   constructor() { }
 
   ngOnInit() {
   }
-
+    markSelectedItem(itemName: string) {
+        itemName = itemName || '';
+        this.selectedItemName = itemName;
+    }
 }

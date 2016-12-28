@@ -1,18 +1,19 @@
+import { Team } from './../models/team';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TeamsService {
-  teams: any[] = [];
+  teams: Team[] = [];
 
-  getAll(): any[] {
+  getAll(): Team[] {
     return this.teams;
   }
 
-  getById(id: number): any {
+  getById(id: number): Team {
     return this.teams[id];
   }
 
-  add(team: any) {
+  add(team: Team) {
     this.teams.push(team);
   }
 }
