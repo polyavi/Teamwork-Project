@@ -1,6 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+
 import { TeamsService } from './../../../core/services/teams.service';
 import { Team } from './../../../core/models/team';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-view-teams',
@@ -14,7 +15,7 @@ export class ViewTeamsComponent implements OnInit {
     constructor(private teamService: TeamsService) { }
 
     ngOnInit() {
-        this.model = new Team(0, '', '', new Date(), '');
+        this.model = new Team(0, '', '', new Date(), '', 0);
         this.teams = this.teamService.getAll();
     }
 }

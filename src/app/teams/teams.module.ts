@@ -7,6 +7,7 @@ import { ViewTeamsComponent } from './view-teams/view-teams.component';
 import { TeamCreateComponent } from './team-create/team-create.component';
 
 import { TeamsService } from './../../core/services/teams.service';
+import { TeamDetailsComponent } from './team-details/team-details.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { TeamsService } from './../../core/services/teams.service';
     ],
     declarations: [
         ViewTeamsComponent,
-        TeamCreateComponent
+        TeamCreateComponent,
+        TeamDetailsComponent
     ],
     providers: [
         TeamsService

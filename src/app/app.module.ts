@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { TeamsModule } from './teams';
+import { TodosModule } from './todos';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -18,13 +19,14 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpModule,
     TeamsModule,
+    TodosModule,
     RouterModule.forRoot(APP_ROUTES),
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    HomeComponent
   ],
   bootstrap: [AppComponent]
 })

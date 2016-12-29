@@ -1,7 +1,7 @@
-import { TeamsService } from './../../../core/services/teams.service';
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
 
 import { Team } from './../../../core/models/team';
+import { TeamsService } from './../../../core/services/teams.service';
 
 @Component({
   selector: 'app-team-create',
