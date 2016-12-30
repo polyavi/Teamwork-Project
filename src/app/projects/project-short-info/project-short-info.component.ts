@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'short-info',
+  templateUrl: './project-short-info.component.html',
+  styleUrls: ['./project-short-info.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class ProjectShortInfoComponent implements OnInit {
   selectedItemName: String;
 
   constructor() { }

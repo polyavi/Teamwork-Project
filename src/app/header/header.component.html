@@ -1,9 +1,21 @@
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <li [class.active]="selectedItemName === 'Home'" (click)="markSelectedItem('Home')"><a routerLink="/">Home</a></li>
-            <li [class.active]="selectedItemName === 'Create Team'" (click)="markSelectedItem('Create team')"><a routerLink="/team/create">Create team</a></li>
-            <li [class.active]="selectedItemName === 'View Teams'" (click)="markSelectedItem('View teams')"><a routerLink="/teams/">View teams</a></li>
-        </ul>
-    </div>
-</nav>
+<div class="logo">
+  <h1>BLACKBOARD</h1>
+  <span>project manager</span>
+</div>
+
+<nav>
+  <div class="user">
+    <ul>
+      <li><a href="# ">LOG IN</a></li>
+    <li><a href="#">SIGN IN</a>
+      </li>
+    </ul>
+
+  </div>
+  <ul class="main-nav">
+    <li [class.active]="selectedItemName === 'Home'" (click)="markSelectedItem('Home')"><a routerLink="/">HOME</a></li>
+    <li><a href="#">PROJECTS</a></li>
+    <li><a href="#">TEAMS</a></li>
+    <li><a href="#">EVENTS</a></li>
+  </ul>
+  <img src="underline.png"></nav>

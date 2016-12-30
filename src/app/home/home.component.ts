@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProjectShortInfoComponent } from '../projects/project-short-info/project-short-info.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
