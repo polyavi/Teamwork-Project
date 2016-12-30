@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
+import { ProjectsModule } from './projects';
 
 @NgModule({
   imports: [
@@ -21,13 +22,14 @@ import { HomeModule } from './home/home.module';
     TeamsModule,
     TodosModule,
     RouterModule.forRoot(APP_ROUTES),
-    HomeModule
+    HomeModule,
+    ProjectsModule
 
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
+    FooterComponent
   ],
   bootstrap: [AppComponent]
 })
