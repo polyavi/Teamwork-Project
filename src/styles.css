@@ -98,6 +98,9 @@ h2 {
 hr{
   margin: 0 30px;
 }
+ul{
+      list-style: none;
+}
 .project-card .button{
   font-family: OneDay;
   text-align: center;
@@ -108,6 +111,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 20px;
 }
 footer{
   display: flex;

@@ -25,9 +25,7 @@ nav img {
 .main-nav {
     margin-bottom: 0;
     padding-top: 3%;
-    list-style: none;
     display: inline-block;
-    list-style: none;
     position: relative;
 }
 
@@ -36,14 +34,14 @@ nav img {
     position: relative;
 }
 
-.main-nav a {
+.main-nav a, .user a {
     color: #ffffff;
     font-family: EraserRegular;
     padding-right: 20px;
     font-size: 1.5em;
 }
 
-.main-nav a:hover, .active a:hover {
+.main-nav a:hover, .active a:hover, .user a:hover{
     color: #EF233C !important;
 }
 
@@ -51,14 +49,20 @@ nav img {
     color: #028090 !important;
 }
 
+.user{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
 @media only screen and (min-width: 481px) and (max-width: 900px) {
-    .main-nav a {
+    .main-nav a, .user a {
         font-size: 1em;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .main-nav a, .logo span{
+    .main-nav a, .logo span, .user a{
         font-size: 0.7em;
     }
     h1 {
