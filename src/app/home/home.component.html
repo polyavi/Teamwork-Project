@@ -1,3 +1,57 @@
-<p>
-  home works!
-</p>
+  <main>
+      <section>
+          <div class="introduction">
+              <ul>
+                  <li><a href="#">find team mates </a></li>
+                  <li><a href="#">discover ideas for your next project</a></li>
+                  <li><a href="#">manage you projects</a></li>
+                  <li><a href="#">schedule project goals and team meatings</a></li>
+                  <li><a href="#">sahare your work</a></li>
+                  <li><a href="#">get feedback by other users</a></li>
+              </ul>
+              <a class="button" href="#">JOIN NOW</a>
+          </div>
+      </section>
+      <div class="wrapper">
+          <section class="project-card">
+              <div class="pins">
+                  <img src="pin.png" alt="">
+                  <h2>top rated projects</h2>
+                  <img src="pin.png" alt="">
+              </div>
+                  <p class="description">Find the best projects and use them for insparation</p>
+              <hr>
+              <div class="info-container">
+                <short-info *ngFor="let project of (projects)" ></short-info>
+              </div>
+              <a class="button" href="#">Find more...</a>
+          </section>
+          <section class="project-card">
+              <div class="pins">
+                  <img src="pin.png" alt="">
+                  <h2>latest projects</h2>
+                  <img src="pin.png" alt="">
+              </div>
+                  <p class="description">Look through the latest projects</p>
+              <hr>
+              <div class="info-container">
+                  <short-info *ngFor="let project of (projects)" ></short-info>
+              </div>
+              <a class="button" href="#">Find more...</a>
+          </section>
+          <section class="project-card">
+              <div class="pins">
+                  <img src="pin.png" alt="">
+                  <h2>upcoming projects</h2>
+                  <img src="pin.png" alt="">
+              </div>
+                  <p class="description">Discover upcoming events</p>
+              <hr>
+              <div class="info-container">
+                  <short-info *ngFor="let event of (events)" ></short-info>
+              </div>
+              <a class="button" href="#">Find more...</a>
+          </section>
+
+      </div>
+</main>
