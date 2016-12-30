@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
-import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   imports: [
@@ -21,12 +21,13 @@ import { HomeComponent } from './home/home.component';
     TeamsModule,
     TodosModule,
     RouterModule.forRoot(APP_ROUTES),
+    HomeModule
+
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
   ],
   bootstrap: [AppComponent]
 })
