@@ -1,4 +1,5 @@
-<form #teamsForm="ngForm" (ngSubmit)="create(); teamsForm.reset()">
+<div class="container">
+<form #teamsForm="ngForm" (ngSubmit)="update()">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -6,7 +7,7 @@
                 <input id="Team_name" class="form-control" type="text" name="name" [(ngModel)]="model.name" #tbName="ngModel" required placeholder="Name" />
                 <div [hidden]="tbName.untouched || tbName.valid">
                     Invalid Team name
-                </div>       
+                </div>
             </div>
         </div>
         <div class="col-md-3">
@@ -15,35 +16,26 @@
                 <label for="Team_form"> Form:</label>
                 <select id="Team_form" class="form-control" [(ngModel)]="model.form" placeholder="Team form" name="form" required>
                     <option value="onsite"> On site</option>
-                    <option value="online"> Online </option>    
-                </select>           
+                    <option value="online"> Online </option>
+                </select>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label for="Team_max_users"> Max users:</label>
-                <input id="Team_max_users" class="form-control" type="text" name="maxUsers" [(ngModel)]="model.maxUsers" required placeholder="Max users" />      
+                <input id="Team_max_users" class="form-control" type="text" name="maxUsers" [(ngModel)]="model.maxUsers" required placeholder="Max users" />
             </div>
         </div>
     </div>
     <div class="row">
          <div class="col-md-6">
             <div class="form-group">
-                <label for="Team_github"> GitHub:</label>
-                <input id="Team_github" class="form-control" type="text" name="github" [(ngModel)]="model.github" placeholder="GitHub" required />
+                <input class="form-control" type="text" name="github" [(ngModel)]="model.github" placeholder="GitHub" required />
             </div>
             <div class="form-group">
-                <button class="btn btn-success">Create</button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="Team_image_url"> Image address:</label>
-                <input id="Team_image_url" class="form-control" type="text" name="image_url" [(ngModel)]="model.image_url" placeholder="Image address" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-success">Create</button>
+                <button class="btn btn-success">Update</button>
             </div>
         </div>
     </div>
 </form>
+</div>

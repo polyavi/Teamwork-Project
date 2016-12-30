@@ -9,10 +9,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
 import { ProjectsModule } from './projects';
+
+import { TeamsService } from './../core/services/teams.service';
 
 @NgModule({
   imports: [
@@ -29,7 +33,12 @@ import { ProjectsModule } from './projects';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
+  providers: [
+      TeamsService
   ],
   bootstrap: [AppComponent]
 })

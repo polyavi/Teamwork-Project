@@ -1,10 +1,10 @@
-.login.center-block.jumbotron{
+.signup.center-block.jumbotron{
   margin : 0 auto;
   width: 600px;
   max-width: 100%;
   background: transparent;
 }
-.login.center-block.jumbotron p.heading {
+.signup.center-block.jumbotron p.heading {
   text-align: center;
   color: white;
   font-family: EraserRegular;
@@ -13,12 +13,12 @@
 }
 
 @media only screen and (max-width: 900px) and (min-width: 481px){
-  .login.center-block.jumbotron p.heading {
+  .signup.center-block.jumbotron p.heading {
     font-size: 2em;
   }
 }
 @media only screen and (max-width: 481px){
-  .login.center-block.jumbotron p.heading {
+  .signup.center-block.jumbotron p.heading {
     font-size: 1.2em;
   }
 }
