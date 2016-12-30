@@ -13,6 +13,10 @@
   </div>
   <ul class="main-nav">
     <li [class.active]="selectedItemName === 'Home'" (click)="markSelectedItem('Home')"><a routerLink="/">HOME</a></li>
+    <li [class.active]="selectedItemName === 'Projects'" (click)="markSelectedItem('Projects')"><a routerLink="/projects">PROJECTS</a></li>
+    <li [class.active]="selectedItemName === 'Teams'" (click)="markSelectedItem('Teams')"><a routerLink="/teams">TEAMS</a></li>
+    <li><a href="#">EVENTS</a></li>
+    
     <li><a routerLink="/projects">PROJECTS</a></li>
     <li><a routerLink="/teams">TEAMS</a></li>
     <li><a routerLink="/events">EVENTS</a></li>

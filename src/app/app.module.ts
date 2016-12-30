@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
+import { ProjectsModule } from './projects';
 
 import { TeamsService } from './../core/services/teams.service';
 
@@ -25,7 +26,8 @@ import { TeamsService } from './../core/services/teams.service';
     TeamsModule,
     TodosModule,
     RouterModule.forRoot(APP_ROUTES),
-    HomeModule
+    HomeModule,
+    ProjectsModule
 
   ],
   declarations: [

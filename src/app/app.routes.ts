@@ -7,6 +7,7 @@ import {
     ViewTeamsComponent,
     TeamDetailsComponent
 } from './teams';
+import { ProjectsComponent} from './projects';
 
 // login page component
 import { LoginComponent } from './login/login.component';
@@ -15,8 +16,12 @@ import { RegisterComponent } from './register/register.component';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
+
+    { path: 'projects', component: ProjectsComponent },
+
     { path: 'login', component: LoginComponent },
     { path: 'signin', component: RegisterComponent },
+  
     { path: 'teams', component: ViewTeamsComponent },
     { path: 'teams/create', component: TeamCreateComponent },
     { path: 'teams/update/:id', component: TeamUpdateComponent },
