@@ -6,16 +6,15 @@
 <nav>
   <div class="user">
     <ul>
-      <li><a href="# ">LOG IN</a></li>
-    <li><a href="#">SIGN IN</a>
-      </li>
+      <li><a routerLink="/login">LOG IN</a></li>
+      <li><a routerLink="/signin">SIGN IN</a></li>
     </ul>
 
   </div>
   <ul class="main-nav">
     <li [class.active]="selectedItemName === 'Home'" (click)="markSelectedItem('Home')"><a routerLink="/">HOME</a></li>
-    <li><a href="#">PROJECTS</a></li>
-    <li><a href="#">TEAMS</a></li>
-    <li><a href="#">EVENTS</a></li>
+    <li><a routerLink="/projects">PROJECTS</a></li>
+    <li><a routerLink="/teams">TEAMS</a></li>
+    <li><a routerLink="/events">EVENTS</a></li>
   </ul>
   <img src="underline.png"></nav>

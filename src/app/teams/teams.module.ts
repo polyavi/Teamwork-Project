@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { ViewTeamsComponent } from './view-teams/view-teams.component';
 import { TeamCreateComponent } from './team-create/team-create.component';
+import { TeamUpdateComponent } from './team-update/team-update.component';
 
 import { TeamsService } from './../../core/services/teams.service';
 import { TeamDetailsComponent } from './team-details/team-details.component';
@@ -18,6 +19,7 @@ import { TeamDetailsComponent } from './team-details/team-details.component';
     declarations: [
         ViewTeamsComponent,
         TeamCreateComponent,
+        TeamUpdateComponent,
         TeamDetailsComponent
     ],
     providers: [

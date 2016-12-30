@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
@@ -28,6 +30,8 @@ import { HomeModule } from './home/home.module';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent]
 })
