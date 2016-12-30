@@ -15,6 +15,8 @@ import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
 
+import { TeamsService } from './../core/services/teams.service';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,6 +34,9 @@ import { HomeModule } from './home/home.module';
     FooterComponent,
     LoginComponent,
     RegisterComponent
+  ],
+  providers: [
+      TeamsService
   ],
   bootstrap: [AppComponent]
 })

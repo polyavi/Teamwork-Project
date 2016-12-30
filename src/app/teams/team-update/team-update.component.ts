@@ -21,14 +21,14 @@ export class TeamUpdateComponent implements OnInit {
 
     ngOnInit() {
       this.route.params.subscribe(params => {
-       this.id = +params['id']; // (+) converts string 'id' to a number
+        this.id = +params['id']; // (+) converts string 'id' to a number
        // In a real app: dispatch action to load the details here.
-       this.model = this.teamsService.getById(this.id);
+        // this.model = this.teamsService.getById(this.id);
      });
     }
 
     update() {
-        this.teamsService.update(this.id,this.model);
+        this.teamsService.update(this.id, this.model);
         this.emitter.emit(this.model);
     }
 }

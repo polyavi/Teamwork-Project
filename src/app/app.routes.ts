@@ -18,8 +18,8 @@ export const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signin', component: RegisterComponent },
     { path: 'teams', component: ViewTeamsComponent },
+    { path: 'teams/create', component: TeamCreateComponent },
     { path: 'teams/update/:id', component: TeamUpdateComponent },
     // { path: 'teams/remove/:id', component: TeamRemoveComponent },
-    { path: 'team/create', component: TeamCreateComponent },
     { path: 'teams/:id', component: TeamDetailsComponent }
 ];

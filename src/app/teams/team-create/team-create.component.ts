@@ -1,6 +1,7 @@
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
 
 import { Team } from './../../../core/models/team';
+import { User } from './../../../core/models/user';
 import { TeamsService } from './../../../core/services/teams.service';
 
 @Component({
@@ -10,20 +11,22 @@ import { TeamsService } from './../../../core/services/teams.service';
 })
 export class TeamCreateComponent implements OnInit {
     model: Team;
-
-    @Output('created') emitter: EventEmitter<Team> = new EventEmitter<Team>();
+    teams: Team[];
+    name: string;
+    @Output('create') emitter: EventEmitter<Team> = new EventEmitter<Team>();
 
     constructor(private teamsService: TeamsService) { }
 
     ngOnInit() {
-        this.model = new Team(0, '', '', new Date(), '', 3);
+        this.model = new Team(0, '', '', new Date(), '', '', 3);
     }
 
     create() {
-        const team = new Team(this.model.id, this.model.name, this.model.form, this.model.createdAt, this.model.github, 
-            this.model.maxUsers);
-        // console.log(team);
-        this.teamsService.add(team);
+        const team = new Team(++this.teamsService.lastId, this.model.name, this.model.form, this.model.createdAt, this.model.github,
+            this.model.image_url, this.model.maxUsers);
+
+        let created = this.teamsService.add(team);
+        console.log(created);
         this.emitter.emit(team);
     }
 }

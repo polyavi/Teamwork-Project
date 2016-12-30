@@ -10,14 +10,15 @@ import { Team } from './../../../core/models/team';
   providers: [ TeamsService ]
 })
 export class ViewTeamsComponent implements OnInit {
-    public model: Team;
+    // public model: Team;
     public teams: Team[];
 
-    constructor(
-      private teamService: TeamsService
-    ) { }
+    constructor(private teamsService: TeamsService) { }
 
     ngOnInit() {
-      this.teams = this.teamService.getAll();
+        // this.model = new Team(0, '', '', new Date(), '', 0);
+        this.teamsService.getAll()
+                .subscribe(teams => this.teams = teams);
+
     }
 }
