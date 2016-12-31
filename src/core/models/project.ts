@@ -1,16 +1,18 @@
+import { Team } from './team';
 
 export class Project {
     id: number;
     title: string;
-    imgUrl: string;
     demo: string;
     github: string;
+    image_url: string;
+    team: Team;
 
-    constructor(id: number, title: string,imgUrl: string, demo: string, github: string) {
+    constructor(id: number, title: string, demo: string, github: string,  image_url: string) {
         this.id = id;
         this.title = title;
-        this.imgUrl = imgUrl;
         this.demo = demo;
         this.github = github;
+        image_url = image_url;
     }
 };

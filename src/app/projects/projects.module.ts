@@ -1,16 +1,31 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-import { ProjectsComponent } from './projects-list/projects.component';
-import { ProjectShortInfoComponent } from '../project-short-info/project-short-info.component';
+import { ViewProjectsComponent } from './view-projects/view-projects.component';
+import { ProjectCreateComponent } from './project-create/project-create.component';
+import { ProjectUpdateComponent } from './project-update/project-update.component';
+
+import { ProjectsService } from './../../core/services/projects.service';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    ProjectsComponent,
-    ProjectShortInfoComponent
-  ]
+    imports: [
+        FormsModule,
+        BrowserModule,
+        RouterModule
+    ],
+    declarations: [
+        ViewProjectsComponent,
+        ProjectCreateComponent,
+        ProjectUpdateComponent,
+        ProjectDetailsComponent
+    ],
+    providers: [
+        ProjectsService
+    ]
 })
-export class ProjectsModule { }
+export class ProjectsModule {
+
+}

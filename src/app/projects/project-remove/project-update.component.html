@@ -1,0 +1,23 @@
+<div class="container">
+<form #projectsForm="ngForm" (ngSubmit)="create(); projectsForm.reset()">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Project_title"> Title:</label>
+                <input id="Project_tite" class="form-control" type="text" name="title" [(ngModel)]="model.name" #tbName="ngModel" required placeholder="Title" />
+                <div [hidden]="tbName.untouched || tbName.valid">
+                    Invalid Project title
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="demo" [(ngModel)]="model.demo" placeholder="Demo" required />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="demo" [(ngModel)]="model.demo" placeholder="Demo" required />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Create</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>

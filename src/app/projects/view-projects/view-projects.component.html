@@ -1,0 +1,30 @@
+<li><a routerLink="/projects/create">Create PROJECT</a></li>
+<h1 class="text-center">Projects</h1>
+<div class="row" *ngFor="let project of projects">
+    <div class="col-md-3">
+        <h5>
+            <a href="/projects/{{project.id}}" > {{ project.title }} </a>
+        </h5>
+    </div>
+    <div class="col-md-1">
+        <!--<em (onclick="test()")-->
+          <a *ngIf="project.demo"  href="{{project.demo}}" > {{ project.title }} </a>
+    </div>
+    <div class="col-md-1">
+            <em *ngIf="project.github"> <a href="{{project.github}}" target="blank"> GitHub </a></em>
+    </div>
+    <div class="col-md-3">
+        <!--if project.isJoinAllowed-->
+            <!--form(method="post" action="/projects/join/" + project.id)-->
+                <!--input(type="submit" value="JOIN").btn.btn-info-->
+    </div>
+    <div class="col-md-1">
+        <h4 *ngIf="project.users"> {{project.users.length}} </h4>
+    </div>
+    <div class="col-md-2">
+        <!--if project.isUpdateAllowed-->
+            <a [routerLink]="['update',project.id]" class="glyphicon glyphicon-edit"></a>
+        <!--if project.isDeleteAllowed-->
+            <a [routerLink]="['remove',project.id]" class="glyphicon glyphicon-remove"></a>
+    </div>
+</div>
