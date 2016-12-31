@@ -18,6 +18,10 @@ import { ProjectsModule } from './projects';
 
 import { TeamsService } from './../core/services/teams.service';
 
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryTeamsDataService }  from '../data/in-memory-teams-data.service';
+import { InMemoryWebApiModule } from '../../node_modules/angular2-in-memory-web-api';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import { TeamsService } from './../core/services/teams.service';
     RouterModule.forRoot(APP_ROUTES),
     HomeModule,
     ProjectsModule
-
+    // InMemoryWebApiModule.forRoot(InMemoryTeamsDataService) //TODO
   ],
   declarations: [
     AppComponent,

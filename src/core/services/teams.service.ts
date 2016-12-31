@@ -3,19 +3,23 @@ import { Headers, Http, RequestOptions, Response } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
+// import { InMemoryTeamsDataService } from '../../data/in-memory-teams-data.service';
+import { IService } from './iservice';
 import { Team } from './../models/team';
 
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class TeamsService {
+export class TeamsService implements IService {
     teams: Team[] = [];
     lastId: number = 0;
     private headers: Headers = new Headers({
       'Content-Type': 'application/json'
     });
     private teamsUrl = './data/teams.json';
+    // private teamsUrl = './data/in-memory-teams-data.service';
 
   // constructor() {
   //   // generate some dummy data
@@ -30,7 +34,6 @@ export class TeamsService {
         return this.getAll()
                     .map((teams: Team[]) => teams.find(team => team.id === id));
     }
-
 
     getAll(): Observable<any> {
       return this.http.get(this.teamsUrl)
@@ -47,11 +50,18 @@ export class TeamsService {
         let bodyString = JSON.stringify(body);
         let options = new RequestOptions({ headers: this.headers });
 
-        console.log(bodyString);
-
         return this.http.post(this.teamsUrl, bodyString, options)
             .map(res => this.extractData(res))
             .catch(this.handleError);
+    }
+
+    addTeam (name: string) {
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      return this.http.post(this.teamsUrl, { name }, options)
+                .toPromise()
+                .then(this.extractData)
+                .catch(this.handleError);
     }
 
     private extractData(res: Response) {

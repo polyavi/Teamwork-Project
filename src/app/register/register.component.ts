@@ -7,7 +7,7 @@ const styles   = require('./register.component.css');
 const template = require('./register.component.html');
 
 @Component({
-  selector: 'signup',
+  selector: 'app-signup',
   template: template,
   styles: [ styles ]
 })

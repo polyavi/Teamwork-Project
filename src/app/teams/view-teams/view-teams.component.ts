@@ -19,6 +19,5 @@ export class ViewTeamsComponent implements OnInit {
         // this.model = new Team(0, '', '', new Date(), '', 0);
         this.teamsService.getAll()
                 .subscribe(teams => this.teams = teams);
-
     }
 }
