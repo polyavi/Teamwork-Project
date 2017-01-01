@@ -11,4 +11,11 @@ export const USERS: any[] = [{
     password: '123456',
     firstName: 'Ivan',
     lastName: 'Ivanov'
+},
+{
+    id: '3',
+    name: 'user',
+    password: '123456',
+    firstName: 'Simo',
+    lastName: 'Ninov'
 }];
