@@ -15,6 +15,9 @@ import {
     ProjectDetailsComponent,
     ProjectRemoveComponent
 } from './projects';
+import {
+    EventShortInfoComponent
+} from './events';
 
 // login page component
 import { LoginComponent } from './login/login.component';
@@ -37,5 +40,7 @@ export const APP_ROUTES: Routes = [
     { path: 'projects/create', component: ProjectCreateComponent },
     { path: 'projects/update/:id', component: ProjectUpdateComponent },
     { path: 'projects/remove/:id', component: ProjectRemoveComponent },
-    { path: 'projects/:id', component: ProjectDetailsComponent }
+    { path: 'projects/:id', component: ProjectDetailsComponent },
+
+    { path: 'events', component: EventShortInfoComponent },
 ];

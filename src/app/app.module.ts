@@ -15,6 +15,7 @@ import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
 import { ProjectsModule } from './projects';
+import { EventsModule } from './events';
 
 import { TeamsService } from './../core/services/teams.service';
 
@@ -32,6 +33,7 @@ import { InMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-a
     RouterModule.forRoot(APP_ROUTES),
     HomeModule,
     ProjectsModule,
+    EventsModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {
       passThruUnknownUrl: true
     })

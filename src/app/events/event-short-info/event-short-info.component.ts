@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Event } from './../../../core/models/events';
+import { EventsService } from './../../../core/services/events.service';
+
 @Component({
-  selector: 'short-info',
-  templateUrl: './project-short-info.component.html',
-  styleUrls: ['./project-short-info.component.css']
+  selector: 'app-short-info',
+  templateUrl: './event-short-info.component.html',
+  styleUrls: ['./event-short-info.component.css'],
+  providers: [ EventsService ]
 })
-export class ProjectShortInfoComponent implements OnInit {
-  selectedItemName: String;
+export class EventShortInfoComponent implements OnInit {
+    public selectedItemName: String;
+    public events: Event[];
 
-  constructor() { }
+    constructor(private eventsService: EventsService) {
 
-  ngOnInit() {
-  }
+    }
+
+    ngOnInit() {
+        this.eventsService.getAll()
+            .subscribe(events => {
+                this.events = events;
+                console.log(events);
+            });
+    }
+
     markSelectedItem(itemName: string) {
         itemName = itemName || '';
         this.selectedItemName = itemName;
