@@ -1,15 +1,23 @@
-<div class="signup center-block jumbotron">
-  <p class="heading">SIGN IN</p>
-  <form role="form" (submit)="signup($event, username.value, password.value)">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" #username class="form-control" id="username" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" #password class="form-control" id="password" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-  <!-- <button class="btn btn-default" routerLink="/login">Click here to Login</button> -->
-</form>
+<div class="signup center-block jumbotron" *ngIf="!authenticated">
+  <p class="heading">SIGNUP</p>
+  <form role="form" [formGroup]="registerForm" (ngSubmit)="signup(registerForm.value)">
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['username'].valid && registerForm.controls['username'].touched}">
+      <label for="username">Username</label>
+      <input class="form-control" type="text" placeholder="JohnyB" [formControl]="registerForm.controls['username']">
+      <div *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched" class="alert alert-danger">You must add a username.</div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['password'].valid && registerForm.controls['password'].touched}">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" placeholder="Password" [formControl]="registerForm.controls['password']">
+        <div *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched" class="alert alert-danger">You must add a password.</div>
+    </div>
+    <button type="submit" class="btn btn-default" [disabled]="!registerForm.valid">Submit</button>
+    <!-- <button class="btn btn-default" routerLink="/signin">Click here to Signup</button> -->
+  </form>
+</div>
+<div class="signup center-block jumbotron text-center" *ngIf="authenticated">
+  <!-- <img src="{{profile.picture}}" />
+  <h2>Welcome, {{profile.email}}</h2>
+  <a (click)="logout()">Logout</a> -->
+  <p>You are logged in.</p>
 </div>
