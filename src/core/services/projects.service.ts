@@ -7,7 +7,6 @@ import 'rxjs/add/operator/toPromise';
 
 import { IService } from './iservice';
 import { Project } from './../models/project';
-import { IService } from './iservice';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
