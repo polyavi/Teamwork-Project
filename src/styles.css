@@ -162,15 +162,9 @@ footer {
 .info-container a {
   color: #028090
 }
-
-.info-container .row, .info-header {
+.info-header {
   padding: 10px;
 }
-
-.info-container h5 {
-  margin: 0;
-}
-
 
 .prof-img {
     width: 10em;
