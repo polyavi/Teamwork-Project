@@ -2,13 +2,12 @@
       <section>
           <div class="introduction">
               <ul>
-                  <li><a href="#">find team mates </a></li>
+                  <li><a routerLink="/teams">find team mates </a></li>
                   <li><a href="#">discover ideas for your next project</a></li>
                   <li><a href="#">manage you projects</a></li>
                   <li><a href="#">schedule project goals and team meatings</a></li>
                   <li><a href="#">share your work</a></li>
               </ul>
-              <a class="button" href="#">JOIN NOW</a>
           </div>
       </section>
       <div class="wrapper">
@@ -21,7 +20,29 @@
                   <p class="description">Look through the latest projects</p>
               <hr>
               <div class="info-container">
+                <div class="row" *ngFor="let project of projects; let i=index">
+                  <div class="col-md-3">
+                    <h5>
+                              <a href="/projects/{{project.id}}" > {{ project.title }} </a>
+                          </h5>
+                  </div>
+                  <div class="col-md-1">
+                    <!--<em (onclick="test()")-->
+                    <a *ngIf="project.demo" href="{{project.demo}}"> {{ project.title }} </a>
+                  </div>
+                  <div class="col-md-1">
+                    <!--if project.isJoinAllowed-->
+                    <!--form(method="post" action="/projects/join/" + project.id)-->
+                    <!--input(type="submit" value="JOIN").btn.btn-info-->
+                  </div>
+                  <div class="col-md-1">
+                    <em *ngIf="project.github"> <a href="{{project.github}}" target="blank"> GitHub </a></em>
+                  </div>
 
+                  <div class="col-md-4">
+                    <h4 *ngIf="project.users"> {{project.users.length}} </h4>
+                  </div>
+                </div>
               </div>
               <a class="button" href="#">Find more...</a>
           </section>

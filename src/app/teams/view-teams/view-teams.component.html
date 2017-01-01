@@ -59,9 +59,9 @@
         </div>
         <div class="col-md-2">
           <!--if team.isUpdateAllowed-->
-          <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
+          <a class="glyphicon glyphicon-edit" [routerLink]="['update',team.id]" ></a>
           <!--if team.isDeleteAllowed-->
-          <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
+          <a class="glyphicon glyphicon-remove" [routerLink]="['remove',team.id]"></a>
         </div>
       </div>
     </div>
