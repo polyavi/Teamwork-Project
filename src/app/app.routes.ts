@@ -9,6 +9,10 @@ import {
     TeamRemoveComponent
 } from './teams';
 import {
+    RegisterComponent,
+    LoginComponent
+} from './users';
+import {
     ProjectCreateComponent,
     ProjectUpdateComponent,
     ViewProjectsComponent,
@@ -18,11 +22,6 @@ import {
 import {
     EventShortInfoComponent
 } from './events';
-
-// login page component
-import { LoginComponent } from './login/login.component';
-// register page component
-import { RegisterComponent } from './register/register.component';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },

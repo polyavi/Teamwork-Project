@@ -9,8 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { UsersModule } from './users';
 import { TeamsModule } from './teams';
 import { TodosModule } from './todos';
 import { HomeModule } from './home/home.module';
@@ -28,6 +27,7 @@ import { InMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-a
     BrowserModule,
     FormsModule,
     HttpModule,
+    UsersModule,
     TeamsModule,
     TodosModule,
     RouterModule.forRoot(APP_ROUTES),
@@ -41,9 +41,7 @@ import { InMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-a
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    RegisterComponent
+    FooterComponent
   ],
   providers: [
       TeamsService

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Project } from './../../../core/models/project';
-import { User } from './../../../core/models/user';
+import { User } from './../../../core/models/users';
 import { ProjectsService } from './../../../core/services/projects.service';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
 
 import { Team } from './../../../core/models/team';
-import { User } from './../../../core/models/user';
+import { User } from './../../../core/models/users';
 import { TeamsService } from './../../../core/services/teams.service';
 
 @Component({
