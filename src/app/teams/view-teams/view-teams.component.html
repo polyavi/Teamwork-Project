@@ -1,33 +1,69 @@
-<li><a routerLink="/teams/create">Create TEAM</a></li>
-<h1 class="text-center">Teams</h1>
-<div class="row" *ngFor="let team of teams">
+<section class="project-card">
+  <div class="pins">
+    <img src="pin.png" alt="">
+    <div class="form-wapper">
+      <label for="mvdb-movies-sort">Filter by:</label>
+      <select class="form-control" id="mvdb-movies-sort" (change)="onSortChange($event)">
+                <option [selected]="orderDesc === false" value="false">Filled</option>
+                <option [selected]="orderDesc === true" value="true">Enrolling</option>
+            </select>
+      <label for="mvdb-movies-order">Sort by:</label>
+      <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
+                <option [selected]="orderDesc === false" value="false">Date</option>
+                <option [selected]="orderDesc === true" value="true">A-Z</option>
+            </select>
+    </div>
+    <img src="pin.png" alt="">
+  </div>
+  <hr>
+<div class="row info-header">
     <div class="col-md-3">
-        <h5>
+      <h5>
+          Team:
+      </h5>
+    </div>
+    <div class="col-md-1">
+      <h5>Form:</h5>
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-1">
+        <h5>GitHub</h5>
+      </div>
+    </div>
+    <hr>
+    <div class="info-container">
+      <div class="row" *ngFor="let team of teams">
+        <div class="col-md-3">
+          <h5>
             <a href="/teams/{{team.id}}" > {{ team.name }} </a>
         </h5>
+        </div>
+        <div class="col-md-1">
+          <!--<em (onclick="test()")-->
+          <strong *ngIf="team.form"> {{team.form}} </strong>
+        </div>
+        <div class="col-md-1">
+          <em *ngIf="team.createdAt"> {{team.createdAt.toLocaleDateString()}} </em>
+        </div>
+        <div class="col-md-1">
+          <em *ngIf="team.github"> <a href="{{team.github}}" target="blank"> GitHub </a></em>
+        </div>
+        <div class="col-md-3">
+          <!--if team.isJoinAllowed-->
+          <!--form(method="post" action="/teams/join/" + team.id)-->
+          <!--input(type="submit" value="JOIN").btn.btn-info-->
+        </div>
+        <div class="col-md-1">
+          <h4 *ngIf="team.users"> {{team.users.length}} </h4>
+        </div>
+        <div class="col-md-2">
+          <!--if team.isUpdateAllowed-->
+          <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
+          <!--if team.isDeleteAllowed-->
+          <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
+        </div>
+      </div>
     </div>
-    <div class="col-md-1">
-        <!--<em (onclick="test()")-->
-            <strong *ngIf="team.form"> {{team.form}} </strong>
-    </div>
-    <div class="col-md-1">
-            <em *ngIf="team.createdAt"> {{team.createdAt.toLocaleDateString()}} </em>
-    </div>
-    <div class="col-md-1">
-            <em *ngIf="team.github"> <a href="{{team.github}}" target="blank"> GitHub </a></em>
-    </div>
-    <div class="col-md-3">
-        <!--if team.isJoinAllowed-->
-            <!--form(method="post" action="/teams/join/" + team.id)-->
-                <!--input(type="submit" value="JOIN").btn.btn-info-->
-    </div>
-    <div class="col-md-1">
-        <h4 *ngIf="team.users"> {{team.users.length}} </h4>
-    </div>
-    <div class="col-md-2">
-        <!--if team.isUpdateAllowed-->
-            <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
-        <!--if team.isDeleteAllowed-->
-            <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
-    </div>
-</div>
+    <a class="btn btn-default" routerLink="/teams/create">Create  new TEAM</a>
+</section>

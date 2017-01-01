@@ -3,13 +3,10 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 // import { contentHeaders } from '../common/headers';
 
-const styles   = require('./login.component.css');
-const template = require('./login.component.html');
-
 @Component({
   selector: 'login',
-  template: template,
-  styles: [ styles ]
+  templateUrl: './login.component.html',
+  styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent {
   constructor(public router: Router, public http: Http) {

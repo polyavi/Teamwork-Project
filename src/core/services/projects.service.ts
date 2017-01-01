@@ -3,9 +3,10 @@ import { Headers, Http, RequestOptions, Response } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 import { Project } from './../models/project';
-
+import { IService } from './iservice';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
