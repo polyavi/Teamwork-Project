@@ -13,9 +13,8 @@
             <h3>  <a href="/teams/{{id}}" >{{ name }}</a></h3>
             <em *ngIf="form"> <span>Form: {{form}}</span> </em>
             <em *ngIf="github"> <span>GitHub:</span><a href="{{github}}" target="blank"> {{github}} </a></em>
-            <em *ngIf="createdAt"> <span>Created on: {{createdAt}}</span> </em>
+            <em *ngIf="createdAt"> <span>Created on: {{createdAt | date:'medium'}}</span> </em>
               <em *ngIf="owner"> <span>Owner: {{owner}}</span> </em>
-              <em *ngIf="users"> <span>Created on: {{users}}</span> </em>
           </div>
         </div>
       </div>

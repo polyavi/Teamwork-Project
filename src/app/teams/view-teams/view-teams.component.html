@@ -24,15 +24,15 @@
           <div class="main-info">
             <h3>  <a href="/teams/{{team.id}}" >{{ team.name }}</a></h3>
             <em *ngIf="team.form"> <span>Form: {{team.form}}</span> </em>
-            <em *ngIf="project.github"> <span>GitHub:</span><a href="{{project.github}}" target="blank"> {{project.github}} </a></em>
+            <em *ngIf="team.github"> <span>GitHub:</span><a href="{{team.github}}" target="blank"> {{team.github}} </a></em>
           </div>
         </div>
       </div>
       <div class="interaction">
         <!--if project.isUpdateAllowed-->
-        <a [routerLink]="['update',project.id]" class="glyphicon glyphicon-edit"></a>
+        <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
         <!--if project.isDeleteAllowed-->
-        <a [routerLink]="['remove',project.id]" class="glyphicon glyphicon-remove"></a>
+        <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
       </div>
     </div>
     <a class="btn btn-default" routerLink="/teams/create">Create  new TEAM</a>
