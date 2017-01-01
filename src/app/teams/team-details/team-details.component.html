@@ -1,8 +1,31 @@
-<h1>Name: {{ name }} </h1>
-<h1>Form: {{ form }} </h1>
-<h1>createdAt: {{ createdAt }} </h1>
-<h1>github: {{github}} </h1>
-<h1>owner: {{ owner }} </h1>
-<h1>users: {{ users }}  //TODO for </h1> 
-<h1>Max Users: {{maxUsers}} </h1>
-<h1>Image: </h1><img src="{{ image_url }}" />
+<section class="project-card">
+  <div class="pins">
+    <img src="pin.png" alt="">
+    <img src="pin.png" alt="">
+  </div>
+  <hr>
+  <div class="info-wrapper">
+    <div class="short-info">
+      <div class="info-wrapper">
+        <div class="img-info-wrap">
+          <img class="prof-img" src="{{ image_url }}" />
+          <div class="main-info">
+            <h3>  <a href="/teams/{{id}}" >{{ name }}</a></h3>
+            <em *ngIf="form"> <span>Form: {{form}}</span> </em>
+            <em *ngIf="github"> <span>GitHub:</span><a href="{{github}}" target="blank"> {{github}} </a></em>
+            <em *ngIf="createdAt"> <span>Created on: {{createdAt}}</span> </em>
+              <em *ngIf="owner"> <span>Owner: {{owner}}</span> </em>
+              <em *ngIf="users"> <span>Created on: {{users}}</span> </em>
+          </div>
+        </div>
+      </div>
+      <div class="interaction">
+        <!--if project.isUpdateAllowed-->
+        <a [routerLink]="['update',id]" class="glyphicon glyphicon-edit"></a>
+        <!--if project.isDeleteAllowed-->
+        <a [routerLink]="['remove',id]" class="glyphicon glyphicon-remove"></a>
+      </div>
+    </div>
+  </div>
+
+</section>
