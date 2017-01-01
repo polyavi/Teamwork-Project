@@ -1,24 +1,66 @@
-<li><a routerLink="/projects/create">Create PROJECT</a></li>
-<h1 class="text-center">Projects</h1>
-<div class="row" *ngFor="let project of projects">
+<section class="project-card">
+  <div class="pins">
+    <img src="pin.png" alt="">
+    <div class="form-wapper">
+      <label for="mvdb-movies-sort">Filter by:</label>
+      <select class="form-control" id="mvdb-movies-sort" (change)="onSortChange($event)">
+                <option [selected]="orderDesc === false" value="false">Finished</option>
+                <option [selected]="orderDesc === true" value="true">In progress</option>
+            </select>
+      <label for="mvdb-movies-order">Sort by:</label>
+      <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
+                <option [selected]="orderDesc === false" value="false">Date</option>
+                <option [selected]="orderDesc === true" value="true">A-Z</option>
+            </select>
+    </div>
+    <img src="pin.png" alt="">
+  </div>
+  <hr>
+  <div class="row info-header">
     <div class="col-md-3">
-        <h5>       
-            <strong *ngIf="project.id"> <a [attr.href]="'/projects/' + project.id" > {{ project.title }} </a></strong>
+      <h5>
+          Title:
+      </h5>
+    </div>
+    <div class="col-md-1">
+      <h5>Demo:</h5>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-1">
+      <h5>GitHub</h5>
+    </div>
+  </div>
+  <hr>
+  <div class="info-container">
+    <div class="row" *ngFor="let project of projects">
+      <div class="col-md-3">
+        <h5>
+            <a href="/projects/{{project.id}}" > {{ project.title }} </a>
         </h5>
-    </div>
-    <div class="col-md-3">
-          <strong><a *ngIf="project.demo"  href="{{project.demo}}" > Demo </a></strong>
-    </div>
-    <div class="col-md-1">
-            <em *ngIf="project.github"> <a href="{{project.github}}" target="blank"> GitHub </a></em>
-    </div>
-    <div class="col-md-1">
+      </div>
+      <div class="col-md-1">
+        <!--<em (onclick="test()")-->
+        <a *ngIf="project.demo" href="{{project.demo}}"> {{ project.title }} </a>
+      </div>
+       <div class="col-md-1">
+        <!--if project.isJoinAllowed-->
+        <!--form(method="post" action="/projects/join/" + project.id)-->
+        <!--input(type="submit" value="JOIN").btn.btn-info-->
+      </div>
+      <div class="col-md-1">
+        <em *ngIf="project.github"> <a href="{{project.github}}" target="blank"> GitHub </a></em>
+      </div>
+
+      <div class="col-md-4">
         <h4 *ngIf="project.users"> {{project.users.length}} </h4>
-    </div>
-    <div class="col-md-2">
+      </div>
+      <div class="col-md-2">
         <!--if project.isUpdateAllowed-->
-            <a [routerLink]="['update',project.id]" class="glyphicon glyphicon-edit"></a>
+        <a [routerLink]="['update',project.id]" class="glyphicon glyphicon-edit"></a>
         <!--if project.isDeleteAllowed-->
-            <a [routerLink]="['remove',project.id]" class="glyphicon glyphicon-remove"></a>
+        <a [routerLink]="['remove',project.id]" class="glyphicon glyphicon-remove"></a>
+      </div>
     </div>
-</div>
+  </div>
+<a class="btn btn-default" routerLink="/projects/create">Create PROJECT</a>
