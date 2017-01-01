@@ -10,15 +10,15 @@ import { Project } from './../../../core/models/project';
   providers: [ ProjectsService ]
 })
 export class ViewProjectsComponent implements OnInit {
-    // public model: Project;
     public projects: Project[];
 
     constructor(private projectsService: ProjectsService) { }
 
     ngOnInit() {
-        // this.model = new Project(0, '', '', new Date(), '', 0);
         this.projectsService.getAll()
-                .subscribe(projects => this.projects = projects);
-
+                .subscribe(projects => {
+                    this.projects = projects;
+                    console.log(projects);
+                });
     }
 }

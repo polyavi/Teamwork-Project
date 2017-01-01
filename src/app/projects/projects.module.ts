@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ViewProjectsComponent } from './view-projects/view-projects.component';
 import { ProjectCreateComponent } from './project-create/project-create.component';
 import { ProjectUpdateComponent } from './project-update/project-update.component';
+import { ProjectRemoveComponent } from './project-remove/project-remove.component';
 
 import { ProjectsService } from './../../core/services/projects.service';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
@@ -20,7 +21,8 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
         ViewProjectsComponent,
         ProjectCreateComponent,
         ProjectUpdateComponent,
-        ProjectDetailsComponent
+        ProjectDetailsComponent,
+        ProjectRemoveComponent
     ],
     providers: [
         ProjectsService

@@ -13,6 +13,6 @@ export class Project {
         this.title = title;
         this.demo = demo;
         this.github = github;
-        image_url = image_url;
+        this.image_url = image_url;
     }
 };

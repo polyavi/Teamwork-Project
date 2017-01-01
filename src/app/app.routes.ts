@@ -5,14 +5,17 @@ import {
     TeamCreateComponent,
     TeamUpdateComponent,
     ViewTeamsComponent,
-    TeamDetailsComponent
+    TeamDetailsComponent,
+    TeamRemoveComponent
 } from './teams';
 import {
     ProjectCreateComponent,
     ProjectUpdateComponent,
     ViewProjectsComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ProjectRemoveComponent
 } from './projects';
+
 // login page component
 import { LoginComponent } from './login/login.component';
 // register page component
@@ -27,12 +30,12 @@ export const APP_ROUTES: Routes = [
     { path: 'teams', component: ViewTeamsComponent },
     { path: 'teams/create', component: TeamCreateComponent },
     { path: 'teams/update/:id', component: TeamUpdateComponent },
-    // { path: 'teams/remove/:id', component: TeamRemoveComponent },
+    { path: 'teams/remove/:id', component: TeamRemoveComponent },
     { path: 'teams/:id', component: TeamDetailsComponent },
 
     { path: 'projects', component: ViewProjectsComponent },
     { path: 'projects/create', component: ProjectCreateComponent },
     { path: 'projects/update/:id', component: ProjectUpdateComponent },
-    // { path: 'projects/remove/:id', component: ProjectRemoveComponent },
+    { path: 'projects/remove/:id', component: ProjectRemoveComponent },
     { path: 'projects/:id', component: ProjectDetailsComponent }
 ];

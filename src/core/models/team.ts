@@ -6,7 +6,7 @@ export class Team {
     form: string;
     createdAt: Date;
     github: string;
-    owner: User;
+    owner_id: number;
     users: User[];
     maxUsers: number;
     image_url: string;
@@ -20,4 +20,4 @@ export class Team {
         this.image_url = image_url;
         this.maxUsers = maxUsers;
     }
-};
+}

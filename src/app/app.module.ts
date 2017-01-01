@@ -19,8 +19,8 @@ import { ProjectsModule } from './projects';
 import { TeamsService } from './../core/services/teams.service';
 
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryTeamsDataService }  from '../data/in-memory-teams-data.service';
-import { InMemoryWebApiModule } from '../../node_modules/angular2-in-memory-web-api';
+import { InMemoryDataService }  from '../data/in-memory-data.service';
+import { InMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-api';
 
 @NgModule({
   imports: [
@@ -31,8 +31,10 @@ import { InMemoryWebApiModule } from '../../node_modules/angular2-in-memory-web-
     TodosModule,
     RouterModule.forRoot(APP_ROUTES),
     HomeModule,
-    ProjectsModule
-    // InMemoryWebApiModule.forRoot(InMemoryTeamsDataService) //TODO
+    ProjectsModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {
+      passThruUnknownUrl: true
+    })
   ],
   declarations: [
     AppComponent,

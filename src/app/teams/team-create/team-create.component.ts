@@ -21,14 +21,16 @@ export class TeamCreateComponent implements OnInit {
         this.model = new Team(0, '', '', new Date(), '', '', 3);
     }
 
-    create() {
+    create(): void {
         const team = new Team(++this.teamsService.lastId, this.model.name, this.model.form, this.model.createdAt, this.model.github,
             this.model.image_url, this.model.maxUsers);
 
-        // let created = this.teamsService.add(team);
-        this.teamsService.getAll().subscribe(teams => this.teams = teams);
-        this.teams.push(team);
-        // this.teamsService.addTeam(this.model.name);
-        //  this.emitter.emit(team);
+        if (!team) { return; }
+        this.teamsService.add(team)
+            .then(returnTeam => {
+
+            });
+
+        this.emitter.emit(team);
     }
 }

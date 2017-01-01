@@ -20,13 +20,14 @@ export class ProjectDetailsComponent implements OnInit {
   //  public team: Team;
     public image_url: string;
 
-    constructor(private projectsService: ProjectsService, private route: ActivatedRoute) {
-
-    }
+    constructor(
+      private projectsService: ProjectsService,
+      private route: ActivatedRoute
+    ) { }
 
     ngOnInit() {
       this.route.params.subscribe(params => {
-        this.id = +params['id'];
+          this.id = +params['id'];
       });
 
       this.projectsService.getById(this.id)

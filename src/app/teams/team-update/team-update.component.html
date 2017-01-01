@@ -4,36 +4,43 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="Team_name"> Name:</label>
-                <input id="Team_name" class="form-control" type="text" name="name" [(ngModel)]="model.name" #tbName="ngModel" required placeholder="Name" />
-                <div [hidden]="tbName.untouched || tbName.valid">
-                    Invalid Team name
-                </div>
+                <input id="Team_name" class="form-control" type="text" name="name" [(ngModel)]="name" required placeholder="Name" />
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <!--<input class="form-control" type="text" name="form" [(ngModel)]="model.form" placeholder="Team form" required />-->
                 <label for="Team_form"> Form:</label>
-                <select id="Team_form" class="form-control" [(ngModel)]="model.form" placeholder="Team form" name="form" required>
+                <!--<select id="Team_form" class="form-control" [(ngModel)]="form" placeholder="Team form" name="form" required>
                     <option value="onsite"> On site</option>
                     <option value="online"> Online </option>
-                </select>
+                </select>-->
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
                 <label for="Team_max_users"> Max users:</label>
-                <input id="Team_max_users" class="form-control" type="text" name="maxUsers" [(ngModel)]="model.maxUsers" required placeholder="Max users" />
+                <input id="Team_max_users" class="form-control" type="text" name="maxUsers" [(ngModel)]="maxUsers" required placeholder="Max users" />
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="row">
          <div class="col-md-6">
             <div class="form-group">
-                <input class="form-control" type="text" name="github" [(ngModel)]="model.github" placeholder="GitHub" required />
+                <label for="Team_github"> GitHub:</label>
+                <input id="Team_github" class="form-control" type="text" name="github" [(ngModel)]="github" placeholder="GitHub" required />
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
-                <button class="btn btn-success">Update</button>
+                <label for="Team_image_url"> Image address:</label>
+                <input id="Team_image_url" class="form-control" type="text" name="image_url" [(ngModel)]="image_url" placeholder="Image address" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6"> 
+            <div class="form-group">
+                <button class="btn btn-success">Create</button>
             </div>
         </div>
     </div>

@@ -1,12 +1,10 @@
-
-export class event {
+export class Event {
     id: number;
     title: string;
     type: string;
     when: Date;
     where: string;
     purpose: string;
-
 
     constructor(id: number, title: string, type: string, when: Date, where: string, purpose: string) {
         this.id = id;

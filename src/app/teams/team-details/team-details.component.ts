@@ -18,7 +18,7 @@ export class TeamDetailsComponent implements OnInit {
     public form: string;
     public createdAt: Date;
     public github: string;
-    public owner: User;
+    public owner_id: number;
     public users: User[];
     public maxUsers: number;
     public image_url: string;
@@ -38,7 +38,7 @@ export class TeamDetailsComponent implements OnInit {
                             this.form = team.form;
                             this.createdAt = team.createdAt;
                             this.github = team.github;
-                            this.owner = team.owner;
+                            this.owner_id = team.owner_id;
                             this.users = team.users;
                             this.maxUsers = team.maxUsers;
                             this.image_url = team.image_url;

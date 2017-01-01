@@ -1,4 +1,5 @@
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Project } from './../../../core/models/project';
 import { User } from './../../../core/models/user';
@@ -15,7 +16,10 @@ export class ProjectCreateComponent implements OnInit {
     title: string;
     @Output('create') emitter: EventEmitter<Project> = new EventEmitter<Project>();
 
-    constructor(private projectsService: ProjectsService) { }
+    constructor(
+        private projectsService: ProjectsService,
+        private router: Router
+    ) { }
 
     ngOnInit() {
         this.model = new Project(0, '', '', '', '');
@@ -25,8 +29,12 @@ export class ProjectCreateComponent implements OnInit {
         const project = new Project(++this.projectsService.lastId, this.model.title, this.model.demo, this.model.github,
             this.model.image_url);
 
-        let created = this.projectsService.add(project);
-        console.log(created);
+        if (!project) { return; }
+        this.projectsService.add(project)
+            .then(() => {
+                this.router.navigate(['./projects']);
+            });
+
         this.emitter.emit(project);
     }
 }

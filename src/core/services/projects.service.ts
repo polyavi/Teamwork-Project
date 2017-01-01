@@ -4,53 +4,57 @@ import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { IService } from './iservice';
 import { Project } from './../models/project';
 
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class ProjectsService {
+export class ProjectsService implements IService {
     projects: Project[] = [];
-    lastId: number = 0;
+    public lastId: number;
     private headers: Headers = new Headers({
       'Content-Type': 'application/json'
     });
-    private projectsUrl = './data/projects.json';
+    private projectsUrl = 'api/projects';
 
-  // constructor() {
-  //   // generate some dummy data
-  //   this.projects.push(new Project(1, 'Angular 1', 'onsite', new Date(), 'https://github.com/angular', 3));
-  //   this.projects.push(new Project(2, 'Angular 2', 'onsite', new Date(), 'https://github.com/angular2', 3));
-  //   this.projects.push(new Project(3, 'Directive 3', 'online', new Date(), 'https://github.com/Project-Directive3', 3));
-  // }
-
-    constructor(private http: Http) { }
-
-    getById(id: number): Observable<Project> {
-        return this.getAll()
-                    .map((projects: Project[]) => projects.find(project => project.id === id));
+    constructor(private http: Http) {
+        this.getAll().subscribe(projects => this.lastId = projects.length);
     }
-
 
     getAll(): Observable<any> {
       return this.http.get(this.projectsUrl)
-                      .map((res: Response) => res.json());
+                      .map((res: Response) => res.json().data as Project[]);
     }
 
-    update(id: number, project: Project): Project {
-      console.log('update project', project);
-      this.projects.filter(project => project.id === id);
-      return project;
+    getById(id: number): Observable<Project> {
+        const url = this.projectsUrl + '/' +  id;
+        return this.http.get(url)
+            .map((res: Response) => res.json().data as Project);
     }
 
-    add(body: any) {
-        let bodyString = JSON.stringify(body);
-        let options = new RequestOptions({ headers: this.headers });
+    add(body: any): Promise<Project> {
+        return this.http
+            .post(this.projectsUrl, JSON.stringify(body), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data)
+            .catch(this.handleError);
+    }
 
-        console.log(bodyString);
+    update(project: any): Promise<Project> {
+        const url = this.projectsUrl + '/' +  project.id;
+        return this.http
+            .put(url, JSON.stringify(project), {headers: this.headers})
+            .toPromise()
+            .then(() => project)
+            .catch(this.handleError);
+    }
 
-        return this.http.post(this.projectsUrl, bodyString, options)
-            .map(res => this.extractData(res))
+    remove(id: number): Promise<void> {
+        const url = this.projectsUrl + '/' +  id;
+        return this.http.delete(url, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
             .catch(this.handleError);
     }
 

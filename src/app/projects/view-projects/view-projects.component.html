@@ -2,21 +2,15 @@
 <h1 class="text-center">Projects</h1>
 <div class="row" *ngFor="let project of projects">
     <div class="col-md-3">
-        <h5>
-            <a href="/projects/{{project.id}}" > {{ project.title }} </a>
+        <h5>       
+            <strong *ngIf="project.id"> <a [attr.href]="'/projects/' + project.id" > {{ project.title }} </a></strong>
         </h5>
     </div>
-    <div class="col-md-1">
-        <!--<em (onclick="test()")-->
-          <a *ngIf="project.demo"  href="{{project.demo}}" > {{ project.title }} </a>
+    <div class="col-md-3">
+          <strong><a *ngIf="project.demo"  href="{{project.demo}}" > Demo </a></strong>
     </div>
     <div class="col-md-1">
             <em *ngIf="project.github"> <a href="{{project.github}}" target="blank"> GitHub </a></em>
-    </div>
-    <div class="col-md-3">
-        <!--if project.isJoinAllowed-->
-            <!--form(method="post" action="/projects/join/" + project.id)-->
-                <!--input(type="submit" value="JOIN").btn.btn-info-->
     </div>
     <div class="col-md-1">
         <h4 *ngIf="project.users"> {{project.users.length}} </h4>

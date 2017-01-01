@@ -1,3 +1,4 @@
+import { TeamsModule } from './../../app/teams/teams.module';
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 
@@ -5,7 +6,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
-// import { InMemoryTeamsDataService } from '../../data/in-memory-teams-data.service';
 import { IService } from './iservice';
 import { Team } from './../models/team';
 
@@ -13,55 +13,51 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TeamsService implements IService {
-    teams: Team[] = [];
-    lastId: number = 0;
+    lastId: number;
     private headers: Headers = new Headers({
       'Content-Type': 'application/json'
     });
-    private teamsUrl = './data/teams.json';
-    // private teamsUrl = './data/in-memory-teams-data.service';
 
-  // constructor() {
-  //   // generate some dummy data
-  //   this.teams.push(new Team(1, 'Angular 1', 'onsite', new Date(), 'https://github.com/angular', 3));
-  //   this.teams.push(new Team(2, 'Angular 2', 'onsite', new Date(), 'https://github.com/angular2', 3));
-  //   this.teams.push(new Team(3, 'Directive 3', 'online', new Date(), 'https://github.com/Team-Directive3', 3));
-  // }
+    private teamsUrl = 'api/teams';
 
-    constructor(private http: Http) { }
-
-    getById(id: number): Observable<Team> {
-        return this.getAll()
-                    .map((teams: Team[]) => teams.find(team => team.id === id));
+    constructor(private http: Http) {
+        this.getAll().subscribe(teams => this.lastId = teams.length);
     }
 
     getAll(): Observable<any> {
       return this.http.get(this.teamsUrl)
-                      .map((res: Response) => res.json());
+                      .map((res: Response) => res.json().data as Team[]);
     }
 
-    update(id: number, team: Team): Team {
-      console.log('update team', team);
-      this.teams.filter(team => team.id === id);
-      return team;
+    getById(id: number): Observable<Team> {
+        const url = this.teamsUrl + '/' +  id;
+        return this.http.get(url)
+            .map((res: Response) => res.json().data as Team);
     }
 
-    add(body: any) {
-        let bodyString = JSON.stringify(body);
-        let options = new RequestOptions({ headers: this.headers });
-
-        return this.http.post(this.teamsUrl, bodyString, options)
-            .map(res => this.extractData(res))
+    add(body: any): Promise<Team> {
+        return this.http
+            .post(this.teamsUrl, JSON.stringify(body), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data)
             .catch(this.handleError);
     }
 
-    addTeam (name: string) {
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-      let options = new RequestOptions({ headers: headers });
-      return this.http.post(this.teamsUrl, { name }, options)
-                .toPromise()
-                .then(this.extractData)
-                .catch(this.handleError);
+    update(team: any): Promise<Team> {
+        const url = this.teamsUrl + '/' +  team.id;
+        return this.http
+            .put(url, JSON.stringify(team), {headers: this.headers})
+            .toPromise()
+            .then(() => team)
+            .catch(this.handleError);
+    }
+
+    remove(id: number): Promise<void> {
+        const url = this.teamsUrl + '/' +  id;
+        return this.http.delete(url, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
     }
 
     private extractData(res: Response) {
