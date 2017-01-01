@@ -3,22 +3,19 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 // import { contentHeaders } from '../common/headers';
 
-const styles   = require('./register.component.css');
-const template = require('./register.component.html');
-
 @Component({
   selector: 'app-signup',
-  template: template,
-  styles: [ styles ]
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(public router: Router, public http: Http) {
+  constructor(public router: Router, private http: Http) {
   }
 
   signup(event, username, password) {
     event.preventDefault();
     let body = JSON.stringify({ username, password });
-    this.http.post('http://localhost:3001/users', body, { /*headers: contentHeaders*/ })
+    this.http.post('../data/users.json', body, { /*headers: contentHeaders*/ })
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);

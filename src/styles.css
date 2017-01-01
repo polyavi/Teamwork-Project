@@ -1,134 +1,223 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 /* You can add global styles to this file, and also import other style files */
+
 body {
-    background-image: url(Chalkboard-Backgrounds.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: arial;
-    background-attachment: fixed;
+  background-image: url(Chalkboard-Backgrounds.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: arial;
+  background-attachment: fixed;
 }
 
 @font-face {
-    font-family: EraserRegular;
-    src: url(EraserRegular.ttf);
+  font-family: EraserRegular;
+  src: url(EraserRegular.ttf);
 }
 
 @font-face {
-    font-family: OneDay;
-    src: url(OneDayinMalangbong.otf);
+  font-family: OneDay;
+  src: url(OneDayinMalangbong.otf);
 }
-a{
+
+a {
   text-decoration: none;
 }
+
 .introduction {
-    text-align: center;
-    border: solid 2px #ffffff;
-    padding: 20px;
-    margin: 30px 15%;
+  text-align: center;
+  border: solid 2px #ffffff;
+  padding: 20px;
+  margin: 30px 15%;
 }
 
 .introduction ul {
-    padding: 0;
-    list-style: none;
-    list-style: none;
-    position: relative;
-    margin-top: 0;
+  padding: 0;
+  list-style: none;
+  list-style: none;
+  position: relative;
+  margin-top: 0;
 }
 
 .introduction ul a {
-    font-size: 1.5em;
-    color: #ffffff;
-    font-family: OneDay;
+  font-size: 1.5em;
+  color: #ffffff;
+  font-family: OneDay;
 }
 
-.button{
-    margin: 10px;
-    padding: 5px 10px;
-    font-size: 1.5em;
-    color: #EF233C;
-    font-family: arial;
-    border: solid 2px #EF233C;
+.button {
+  margin: 10px;
+  padding: 5px 10px;
+  font-size: 1.5em;
+  color: #EF233C;
+  font-family: arial;
+  border: solid 2px #EF233C;
 }
 
 .introduction a:hover {
-    color: #028090;
+  color: #028090;
 }
 
 .introduction>a:hover {
-    border: solid 2px #028090;
+  border: solid 2px #028090;
+}
+
+.pins, .form-wapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
 }
 
 .pins {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    padding-right: 30px;
+  padding-right: 30px;
+}
+
+.form-wapper label {
+  margin: 10px;
+  width: 5em;
+}
+
+.form-wapper select {
+  width: 10em;
+}
+
+.pins img {
+  width: 5em;
+  height: 4em;
 }
 
 h2 {
-    font-family: EraserRegular;
-    color: #2D2C2A;
-    font-size: 2em;
-    margin: 5px;
-    text-align: center;
-    font-weight: normal;
+  font-family: EraserRegular;
+  color: #2D2C2A;
+  font-size: 2em;
+  margin: 5px;
+  text-align: center;
+  font-weight: normal;
 }
 
 .wrapper {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .project-card {
-    background-color: #E3E8EA;
-    margin: 10px 10%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+  background-color: #E3E8EA;
+  margin: 10px 10%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.description{
+
+.description {
   font-family: OneDay;
   color: #028090;
   font-size: 2em;
   margin: 5px;
   text-align: center;
 }
-hr{
+
+hr {
   margin: 0 30px;
 }
-ul{
-      list-style: none;
+
+ul {
+  list-style: none;
 }
-.project-card .button{
-  font-family: OneDay;
+
+.project-card .button {
   text-align: center;
   width: 20%;
   align-self: center;
 }
+
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
 }
-footer{
+
+footer {
   display: flex;
   flex-direction: column;
 }
 
-@media only screen and (min-width: 481px) and (max-width: 900px) {
-    h2 {
-        font-size: 1.5em;
-    }
+.btn-default {
+  background-color: #EF233C;
+  color: #ffffff;
+  margin: 0 20px;
+  height: 35px;
+  width: 20%;
+  align-self: center;
 }
+
+.btn-default:hover {
+  background-color: #028090;
+  color: #ffffff;
+}
+
+.info-container a {
+  color: #028090
+}
+
+.info-container .row, .info-header {
+  padding: 10px;
+}
+
+.info-container h5 {
+  margin: 0;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 900px) {
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
 @media only screen and (max-width: 480px) {
-    h2 {
-        font-size: 1.5em;
-    }
-    header {
-        display: flex;
-        flex-direction: column;
-    }
+  h2 {
+    font-size: 1.5em;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card {
+    padding: 10px 0;
+  }
+  .pins {
+    padding-right: 10px;
+  }
+  .pins label {
+    font-size: 10px;
+    margin: 0 0 0 5px;
+  }
+  .pins img {
+    width: 3em;
+    height: 3em;
+  }
+  .pins select, .btn-default {
+    width: 10em;
+    height: 25px;
+    font-size: 10px;
+  }
+  .form-wapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+  h5, .info-container a, strong {
+    font-size: 0.8em;
+  }
+  .info-header, .info-container .row {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+  .info-container h5{
+    padding-top: 5px;
+  }
 }
