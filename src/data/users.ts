@@ -4,7 +4,9 @@ export const USERS: any[] = [{
     password: '123456',
     firstName: 'Ginyo',
     lastName: 'Ginev'
-},{  id: '2',
+},
+{
+    id: '2',
     name: 'lonelyUser2',
     password: '123456',
     firstName: 'Ivan',

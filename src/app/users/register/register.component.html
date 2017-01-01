@@ -3,13 +3,25 @@
   <form role="form" [formGroup]="registerForm" (ngSubmit)="signup(registerForm.value)">
     <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['username'].valid && registerForm.controls['username'].touched}">
       <label for="username">Username</label>
-      <input class="form-control" type="text" placeholder="JohnyB" [formControl]="registerForm.controls['username']">
+      <input class="form-control" type="text" placeholder="Username" [formControl]="registerForm.controls['username']">
       <div *ngIf="registerForm.controls['username'].hasError('required') && registerForm.controls['username'].touched" class="alert alert-danger">You must add a username.</div>
     </div>
     <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['password'].valid && registerForm.controls['password'].touched}">
         <label for="password">Password</label>
         <input class="form-control" type="password" placeholder="Password" [formControl]="registerForm.controls['password']">
         <div *ngIf="registerForm.controls['password'].hasError('required') && registerForm.controls['password'].touched" class="alert alert-danger">You must add a password.</div>
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" #name class="form-control" id="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" #firstName class="form-control" id="firstName" placeholder="First Name">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" #lastName class="form-control" id="lastName" placeholder="Last Name">
     </div>
     <button type="submit" class="btn btn-default" [disabled]="!registerForm.valid">Submit</button>
     <!-- <button class="btn btn-default" routerLink="/signin">Click here to Signup</button> -->

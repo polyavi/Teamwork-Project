@@ -16,6 +16,7 @@ export class UsersService {
     });
 
     private usersUrl = 'api/users';
+    private usersLoginUrl = 'api/users/login';
 
     constructor(private http: Http) {
         this.getAll().subscribe(users => this.lastId = users.length);
@@ -26,16 +27,29 @@ export class UsersService {
                     .map((res: Response) => res.json().data as User[]);
     }
 
-    // let body = JSON.stringify({ username, password });
-    // this.http.post('http://localhost:3001/users', body, { /*headers: contentHeaders*/ })
-    //   .subscribe(
-    //     response => {
-    //       localStorage.setItem('id_token', response.json().id_token);
-    //       this.router.navigate(['home']);
-    //     },
-    //     error => {
-    //       alert(error.text());
-    //       console.log(error.text());
-    //     }
-    //   );
+    login(username: string, password: string): any {
+        // this.getByUsername(username)
+        //             .then(
+
+        //             });
+    }
+
+    register(body: any): Promise<any> {
+        return this.http.post(this.usersUrl, JSON.stringify( body ), {headers: this.headers} )
+            .toPromise()
+            .then((res: Response) => localStorage.setItem('id_token', res.json().id_token))
+            .catch(this.handleError);
+    }
+
+    // getByUsername(username: string): Promise<any> {
+
+    // }
+
+    public logoutUser(): void {
+        localStorage.clear();
+    }
+
+    private handleError(error: Response) {
+        return Observable.throw(error.json().error || 'Server Error');
+    }
 }

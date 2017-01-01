@@ -1,4 +1,3 @@
-import { TeamsModule } from './../../app/teams/teams.module';
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 
