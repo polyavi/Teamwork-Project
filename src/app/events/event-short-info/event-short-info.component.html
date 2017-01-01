@@ -1,14 +1,42 @@
-<div class="short-info">
-
-<div class="info-wrapper">
-  <div class="img-info-wrap">
-    <img class="prof-img" src="project-img.jpg" alt="">
-    <div class="main-info">
-      <h3>{{title}}</h3>
-      <a href="#"><span>type:</span>{{type}}</a>
-      <a href="#"><span>place:</span>{{place}}</a>
-      <a href="#"><span>date and time:</span>{{time}}</a>
+<section class="project-card">
+  <div class="pins">
+    <img src="pin.png" alt="">
+    <div class="form-wapper">
+      <label for="mvdb-movies-sort">Filter by:</label>
+      <select class="form-control" id="mvdb-movies-sort" (change)="onSortChange($event)">
+                <option [selected]="orderDesc === false" value="false">Upcoming</option>
+                <option [selected]="orderDesc === true" value="true">Past</option>
+            </select>
+      <label for="mvdb-movies-order">Sort by:</label>
+      <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
+                <option [selected]="orderDesc === false" value="false">Date</option>
+                <option [selected]="orderDesc === true" value="true">A-Z</option>
+            </select>
     </div>
+    <img src="pin.png" alt="">
   </div>
-</div>
-</div>
+  <hr>
+  <div class="info-wrapper">
+    <div class="short-info" *ngFor="let project of projects; let i=index">
+      <div class="info-wrapper">
+        <div class="img-info-wrap">
+          <img class="prof-img" src="{{ image_url }}" />
+          <div class="main-info">
+            <h3>  <a href="/events/{{event.id}}" > {{ event.title }} </a></h3>
+              <em *ngIf="event.type"> <span>Type: {{event.type}}</span> </em>
+              <em *ngIf="event.place"> <span>Place: {{event.place}}</span> </em>
+              <em *ngIf="event.time"> <span>Date and time: {{event.time}}</span> </em>
+          </div>
+        </div>
+      </div>
+      <div class="interaction">
+        <!--if project.isUpdateAllowed-->
+        <a class="glyphicon glyphicon-edit" [routerLink]="['update',event.id]"></a>
+        <!--if project.isDeleteAllowed-->
+        <a class="glyphicon glyphicon-remove" [routerLink]="['remove',event.id]"></a>
+      </div>
+    </div>
+
+  <a class="btn btn-default" routerLink="/projects/create">Create EVENT</a>
+ </div>
+</section>

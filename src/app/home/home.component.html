@@ -1,77 +1,67 @@
-  <main>
-      <section>
-          <div class="introduction">
-              <ul>
-                  <li><a routerLink="/teams">find team mates </a></li>
-                  <li><a href="#">discover ideas for your next project</a></li>
-                  <li><a href="#">manage you projects</a></li>
-                  <li><a href="#">schedule project goals and team meatings</a></li>
-                  <li><a href="#">share your work</a></li>
-              </ul>
+<main>
+  <section>
+    <div class="introduction">
+      <ul>
+        <li><a routerLink="/teams">find team mates </a></li>
+        <li><a href="#">discover ideas for your next project</a></li>
+        <li><a href="#">manage you projects</a></li>
+        <li><a href="#">schedule project goals and team meatings</a></li>
+        <li><a href="#">share your work</a></li>
+      </ul>
+    </div>
+  </section>
+  <div class="wrapper">
+    <section class="project-card">
+      <div class="pins">
+        <img src="pin.png" alt="">
+        <h2>latest projects</h2>
+        <img src="pin.png" alt="">
+      </div>
+      <p class="description">Look through the latest projects</p>
+      <hr>
+      <div class="info-wrapper">
+        <div class="short-info" *ngFor="let project of projects; let i=index">
+          <div class="info-wrapper">
+            <div class="img-info-wrap">
+              <img class="prof-img" src="{{ image_url }}" />
+              <div class="main-info">
+                <h3>  <a *ngIf="project.demo" href="{{project.demo}}"> {{ project.title }} </a></h3>
+                  <em *ngIf="project.demo"> <span>Demo:</span><a href="{{project.demo}}" target="blank"> {{project.demo}} </a></em>
+                <em *ngIf="project.github"> <span>GitHub:</span><a href="{{project.github}}" target="blank"> {{project.github}} </a></em>
+                <h4 *ngIf="project.users"> {{project.users.length}} </h4>
+              </div>
+            </div>
           </div>
-      </section>
-      <div class="wrapper">
-          <section class="project-card">
-              <div class="pins">
-                  <img src="pin.png" alt="">
-                  <h2>latest projects</h2>
-                  <img src="pin.png" alt="">
-              </div>
-                  <p class="description">Look through the latest projects</p>
-              <hr>
-              <div class="info-container">
-                <div class="row" *ngFor="let project of projects; let i=index">
-                  <div class="col-md-3">
-                    <h5>
-                              <a href="/projects/{{project.id}}" > {{ project.title }} </a>
-                          </h5>
-                  </div>
-                  <div class="col-md-1">
-                    <!--<em (onclick="test()")-->
-                    <a *ngIf="project.demo" href="{{project.demo}}"> {{ project.title }} </a>
-                  </div>
-                  <div class="col-md-1">
-                    <!--if project.isJoinAllowed-->
-                    <!--form(method="post" action="/projects/join/" + project.id)-->
-                    <!--input(type="submit" value="JOIN").btn.btn-info-->
-                  </div>
-                  <div class="col-md-1">
-                    <em *ngIf="project.github"> <a href="{{project.github}}" target="blank"> GitHub </a></em>
-                  </div>
-
-                  <div class="col-md-4">
-                    <h4 *ngIf="project.users"> {{project.users.length}} </h4>
-                  </div>
-                </div>
-              </div>
-              <a class="button" href="#">Find more...</a>
-          </section>
-          <section class="project-card">
-              <div class="pins">
-                  <img src="pin.png" alt="">
-                  <h2>Enrolling teams</h2>
-                  <img src="pin.png" alt="">
-              </div>
-                  <p class="description">Choose the perfect teammates</p>
-              <hr>
-              <div class="info-container">
-
-              </div>
-              <a class="button" href="#">Find more...</a>
-          </section>
-          <section class="project-card">
-              <div class="pins">
-                  <img src="pin.png" alt="">
-                  <h2>upcoming events</h2>
-                  <img src="pin.png" alt="">
-              </div>
-                  <p class="description">Discover upcoming events</p>
-              <hr>
-              <div class="info-container">
-
-              </div>
-              <a class="button" href="#">Find more...</a>
-          </section>
+        </div>
+        <a class="button" href="#">Find more...</a>
+      </div>
+    </section>
+    <section class="project-card">
+      <div class="pins">
+        <img src="pin.png" alt="">
+        <h2>Enrolling teams</h2>
+        <img src="pin.png" alt="">
+      </div>
+      <p class="description">Choose the perfect teammates</p>
+      <hr>
+      <div class="info-container">
 
       </div>
+      <a class="button" href="#">Find more...</a>
+    </section>
+    <section class="project-card">
+      <div class="pins">
+        <img src="pin.png" alt="">
+        <h2>upcoming events</h2>
+        <img src="pin.png" alt="">
+      </div>
+      <p class="description">Discover upcoming events</p>
+      <hr>
+      <div class="info-container">
+
+      </div>
+      <a class="button" href="#">Find more...</a>
+    </section>
+
+    </div>
 </main>

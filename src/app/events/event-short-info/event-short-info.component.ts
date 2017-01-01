@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from './../../../core/models/events';
 import { EventsService } from './../../../core/services/events.service';
 
+
 @Component({
   selector: 'app-short-info',
   templateUrl: './event-short-info.component.html',
