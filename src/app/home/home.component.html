@@ -23,10 +23,10 @@
         <div class="short-info" *ngFor="let project of projects; let i=index">
           <div class="info-wrapper">
             <div class="img-info-wrap">
-              <img class="prof-img" src="{{ image_url }}" />
+              <img class="prof-img" src="{{ project.image_url }}" />
               <div class="main-info">
                 <h3>  <a *ngIf="project.demo" href="{{project.demo}}"> {{ project.title }} </a></h3>
-                  <em *ngIf="project.demo"> <span>Demo:</span><a href="{{project.demo}}" target="blank"> {{project.demo}} </a></em>
+                <em *ngIf="project.demo"> <span>Demo:</span><a href="{{project.demo}}" target="blank"> {{project.demo}} </a></em>
                 <em *ngIf="project.github"> <span>GitHub:</span><a href="{{project.github}}" target="blank"> {{project.github}} </a></em>
                 <h4 *ngIf="project.users"> {{project.users.length}} </h4>
               </div>
@@ -44,10 +44,21 @@
       </div>
       <p class="description">Choose the perfect teammates</p>
       <hr>
-      <div class="info-container">
-
+      <div class="info-wrapper">
+        <div class="short-info" *ngFor="let team of teams">
+          <div class="info-wrapper">
+            <div class="img-info-wrap">
+              <img class="prof-img" src="{{ team.image_url }}" />
+              <div class="main-info">
+                <h3>  <a href="/teams/{{team.id}}" >{{ team.name }}</a></h3>
+                <em *ngIf="team.form"> <span>Form: {{team.form}}</span> </em>
+                <em *ngIf="team.github"> <span>GitHub:</span><a href="{{team.github}}" target="blank"> {{team.github}} </a></em>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="button" href="#">Find more...</a>
       </div>
-      <a class="button" href="#">Find more...</a>
     </section>
     <section class="project-card">
       <div class="pins">
@@ -57,11 +68,24 @@
       </div>
       <p class="description">Discover upcoming events</p>
       <hr>
-      <div class="info-container">
-
+      <div class="info-wrapper">
+        <div class="short-info" *ngFor="let event of events; let i=index">
+          <div class="info-wrapper">
+            <div class="img-info-wrap">
+              <img class="prof-img" src="{{ event.image_url }}" />
+              <div class="main-info">
+                <h3>  <a href="/events/{{event.id}}" > {{ event.title }} </a></h3>
+                <em *ngIf="event.type"> <span>Type: {{event.type}}</span> </em>
+                <em *ngIf="event.place"> <span>Place: {{event.place}}</span> </em>
+                <em *ngIf="event.time"> <span>Date and time: {{event.time}}</span> </em>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
       <a class="button" href="#">Find more...</a>
     </section>
 
-    </div>
+  </div>
 </main>

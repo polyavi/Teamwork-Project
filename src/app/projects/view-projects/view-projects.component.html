@@ -20,7 +20,7 @@
     <div class="short-info" *ngFor="let project of projects; let i=index">
       <div class="info-wrapper">
         <div class="img-info-wrap">
-          <img class="prof-img" src="{{ image_url }}" />
+          <img class="prof-img" src="{{ project.image_url }}" />
           <div class="main-info">
             <h3>  <a href="/projects/{{project.id}}" > {{ project.title }} </a></h3>
             <em *ngIf="project.demo"> <span>Demo:</span><a href="{{project.demo}}" target="blank"> {{project.demo}} </a></em>

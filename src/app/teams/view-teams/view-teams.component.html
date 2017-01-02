@@ -20,7 +20,7 @@
     <div class="short-info" *ngFor="let team of teams">
       <div class="info-wrapper">
         <div class="img-info-wrap">
-          <img class="prof-img" src="{{ image_url }}" />
+          <img class="prof-img" src="{{ team.image_url }}" />
           <div class="main-info">
             <h3>  <a href="/teams/{{team.id}}" >{{ team.name }}</a></h3>
             <em *ngIf="team.form"> <span>Form: {{team.form}}</span> </em>
