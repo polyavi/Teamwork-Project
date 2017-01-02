@@ -25,7 +25,7 @@ export class TeamDetailsComponent implements OnInit {
     public maxUsers: number;
     public image_url: string;
 
-    constructor(private teamsService: TeamsService, private route: ActivatedRoute) {
+    constructor(public usersService: UsersService, private teamsService: TeamsService, private route: ActivatedRoute) {
 
     }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './../../../core/services/users.service';
 
 
 import { TeamsService } from './../../../core/services/teams.service';
@@ -17,7 +18,7 @@ export class ViewTeamsComponent implements OnInit {
     private sortBy: string;
     private sortingProperties: string[];
 
-    constructor(private teamsService: TeamsService) { }
+    constructor(private teamsService: TeamsService, public usersService: UsersService) { }
     ngOnInit() {
         this.teamsService.getAll()
                 .subscribe(teams => {
