@@ -19,6 +19,7 @@ export class TeamUpdateComponent implements OnInit {
     public github: string;
     public owner_id: number;
     public users: User[];
+    public isFilled: string;
     public maxUsers: number;
     public image_url: string;
 
@@ -42,6 +43,7 @@ export class TeamUpdateComponent implements OnInit {
                           this.github = team.github;
                           this.owner_id = team.owner_id;
                           this.users = team.users;
+                          this.isFilled = team.isFilled;
                           this.maxUsers = team.maxUsers;
                           this.image_url = team.image_url;
                       });
@@ -49,7 +51,7 @@ export class TeamUpdateComponent implements OnInit {
     }
 
     update() {
-        this.model = new Team(this.id, this.name, this.form, this.createdAt, this.github, this.image_url, this.maxUsers);
+        this.model = new Team(this.id, this.name, this.form, this.createdAt, this.github, this.isFilled, this.image_url, this.maxUsers);
         this.teamsService.update(this.model)
           .then(() => {
                 this.router.navigate(['./teams']);

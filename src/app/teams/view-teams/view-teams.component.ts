@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { TeamsService } from './../../../core/services/teams.service';
 import { Team } from './../../../core/models/team';
 
@@ -11,9 +12,10 @@ import { Team } from './../../../core/models/team';
 })
 export class ViewTeamsComponent implements OnInit {
     public teams: Team[];
+    private filterProperties: string[];
+    private filterBy: string;
 
     constructor(private teamsService: TeamsService) { }
-
     ngOnInit() {
         this.teamsService.getAll()
                 .subscribe(teams => {
@@ -21,5 +23,10 @@ export class ViewTeamsComponent implements OnInit {
                     console.log(teams);
                     console.log(localStorage.getItem('id_token'));
                 });
+                this.filterProperties = ['Filled', 'Enrolling'];
+                this.filterBy = this.filterProperties[1];
+    }
+    onFilterChange(e: any) {
+        this.filterBy = e.target.value;
     }
 }

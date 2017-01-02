@@ -11,18 +11,22 @@ import { TeamRemoveComponent } from './team-remove/team-remove.component';
 import { TeamsService } from './../../core/services/teams.service';
 import { TeamDetailsComponent } from './team-details/team-details.component';
 
+import { FilterTeamsPipe } from './../../core/pipes/filter-teams.pipe';
+
 @NgModule({
     imports: [
         FormsModule,
         BrowserModule,
-        RouterModule,ReactiveFormsModule
+        RouterModule,ReactiveFormsModule,
+
     ],
     declarations: [
         ViewTeamsComponent,
         TeamCreateComponent,
         TeamUpdateComponent,
         TeamDetailsComponent,
-        TeamRemoveComponent
+        TeamRemoveComponent,
+        FilterTeamsPipe
     ],
     providers: [
         TeamsService
