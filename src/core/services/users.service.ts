@@ -56,7 +56,7 @@ export class UsersService {
             .map((res: Response) => res.json().data as User);
     }
 
-    me() {
+    getLoggedUser(): User {
       return JSON.parse(localStorage.getItem('user'));
     }
 

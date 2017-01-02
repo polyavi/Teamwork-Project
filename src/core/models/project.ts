@@ -10,7 +10,8 @@ export class Project {
     image_url: string;
     team: Team;
 
-    constructor(id: number, title: string, demo: string, github: string, createdAt: string, isFinished: string, image_url: string) {
+    constructor(id: number, title: string, demo: string, github: string, createdAt: string, isFinished: string,
+                    image_url: string) {
         this.id = id;
         this.title = title;
         this.demo = demo;
