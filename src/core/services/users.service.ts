@@ -21,12 +21,12 @@ export class UsersService {
 
     constructor(private http: Http) {
       // check if we have a token
-      if(localStorage.getItem('id_token')){
+      if (localStorage.getItem('id_token')) {
         this.loggedIn = true;
       }
       // set last id
-      this.getAll().subscribe((users)=>console.log(users));
-      // this.lastId = this.getAll().length;
+      // this.getAll().subscribe((users) => console.log(users));
+      this.getAll().subscribe(teams => this.lastId = teams.length);
     }
 
     getAll(): Observable<any> {
@@ -37,7 +37,7 @@ export class UsersService {
     login(userToLogin: User): Observable<any> {
       return this.http.post(this.usersLoginUrl, userToLogin)
         .map((res: Response) => {
-          if(res.json().data) {
+          if (res.json().data) {
             // found the user
             localStorage.setItem('id_token', res.json().data.token);
             let userData = res.json().data;
@@ -55,7 +55,7 @@ export class UsersService {
     }
 
     register(body: any): Promise<any> {
-        return this.http.post(this.usersUrl, JSON.stringify( body ), {headers: this.headers} )
+        return this.http.post(this.usersUrl, JSON.stringify(body), { headers: this.headers } )
             .toPromise()
             .then((res: Response) => res.json())
             .catch(this.handleError);

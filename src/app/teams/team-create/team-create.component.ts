@@ -5,7 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Team } from './../../../core/models/team';
 import { User } from './../../../core/models/users';
 import { TeamsService } from './../../../core/services/teams.service';
-import { NotificationsService } from './../../../../node_modules/angular2-notifications';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-team-create',
@@ -41,7 +41,7 @@ export class TeamCreateComponent implements OnInit {
 
     create(): void {
         const team = new Team(++this.teamsService.lastId, this.model.name, this.model.form, this.model.createdAt, this.model.github,
-             this.model.image_url,'enrolling', this.model.maxUsers);
+            'enrolling', this.model.image_url, this.model.maxUsers);
 
         if (!team) { return; }
         this.teamsService.add(team)

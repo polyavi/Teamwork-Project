@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './../../../core/services/users.service';
 
+import { UsersService } from './../../../core/services/users.service';
 import { ProjectsService } from './../../../core/services/projects.service';
 import { Project } from './../../../core/models/project';
 
@@ -11,11 +11,11 @@ import { Project } from './../../../core/models/project';
   providers: [ ProjectsService ]
 })
 export class ViewProjectsComponent implements OnInit {
+    public filterBy: string;
+    public filterProperties: string[];
     public projects: Project[];
-    private filterProperties: string[];
-    private filterBy: string;
-    private sortBy: string;
-    private sortingProperties: string[];
+    public sortBy: string;
+    public sortingProperties: string[];
 
     constructor(private projectsService: ProjectsService, public usersService: UsersService) { }
 

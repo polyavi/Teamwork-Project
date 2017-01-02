@@ -43,12 +43,11 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/']);
         },
         (err: any) => {
-          console.log(err)
             this.notificationsService.error('Login error', 'Try again!');
             this.router.navigate(['/login']);
         });
     }
-    public logout(){
+    public logout() {
       this.usersService.logoutUser();
       this.router.navigate(['/']);
     }

@@ -14,13 +14,13 @@ function sortAsc(a: string, b: string) {
 export class SortTeamsPipe implements PipeTransform {
     TextStreamBase: Team;
 
-    transform(items: any[], sortBy: string = 'Name', isDesc: boolean = true): Team[] {
+    transform(items: any[], sortBy = 'Name', isDesc = true): Team[] {
         if (!items) { return; }
 
         let sortFunc = sortAsc;
         let sortingProperties = ['Name', 'Date'];
 
-        switch(sortBy){
+        switch (sortBy) {
             case sortingProperties[0]: sortBy = 'name'; break;
             case sortingProperties[1]: sortBy = 'createdAt'; break;
         }

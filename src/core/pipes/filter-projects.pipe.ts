@@ -3,7 +3,7 @@ import { Project } from './../models/project';
 
 @Pipe({ name: 'filterProjects', pure: true })
 export class FilterProjectsPipe implements PipeTransform {
-    transform(items: Project[], filterValue: string = 'All'): Project[] {
+    transform(items: Project[], filterValue = 'All'): Project[] {
         if (!items) {
             return;
         }

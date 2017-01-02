@@ -12,11 +12,12 @@ import { Team } from './../../../core/models/team';
   providers: [ TeamsService ]
 })
 export class ViewTeamsComponent implements OnInit {
-    public teams: Team[];
     private filterProperties: string[];
     private filterBy: string;
-    private sortBy: string;
-    private sortingProperties: string[];
+
+    public sortBy: string;
+    public sortingProperties: string[];
+    public teams: Team[];
 
     constructor(private teamsService: TeamsService, public usersService: UsersService) { }
     ngOnInit() {

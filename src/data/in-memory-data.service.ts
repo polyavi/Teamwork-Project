@@ -114,10 +114,10 @@ export class InMemoryDataOverrideService extends InMemoryDataService {
 
       if (id) {
         data = this.findById(collection, id);
-      } else if(req.url.toString() == 'api/auth'){ // custom auth method
+      } else if (req.url.toString() == 'api/auth') { // custom auth method
         let user = interceptorArgs.db['users'].find(
-          (user)=>user.username==JSON.parse(req.getBody()).username);
-        if(user && user.password === JSON.parse(req.getBody()).password){
+          (user) => user.username == JSON.parse(req.getBody()).username);
+        if (user && user.password === JSON.parse(req.getBody()).password) {
           user['token'] = btoa(`${user.username}:${user.id}`);
           data = user;
         }
@@ -132,7 +132,7 @@ export class InMemoryDataOverrideService extends InMemoryDataService {
           status: STATUS.OK
         });
       } else {
-        resOptions = createErrorResponse(req, STATUS.NOT_FOUND,`'${collectionName}' with id='${id}' not found`);
+        resOptions = createErrorResponse(req, STATUS.NOT_FOUND, `'${collectionName}' with id='${id}' not found`);
       }
 
       emitResponse(responseObserver, req, resOptions);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SimpleNotificationsComponent } from 'angular2-notifications';
 import { UsersService } from '../core/services/users.service';
@@ -8,34 +8,36 @@ import { UsersService } from '../core/services/users.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+    public notification_options: Object;
 
-  constructor(
-    public usersService:UsersService,
-    public router:Router
-  ){
+    constructor(
+        public usersService: UsersService,
+        public router: Router
+    ) { }
 
-  }
-  public notification_options = {
-    timeOut: 3000,
-    lastOnBottom: true,
-    clickToClose: true,
-    maxLength: 0,
-    maxStack: 7,
-    showProgressBar: true,
-    pauseOnHover: true,
-    preventDuplicates: false,
-    preventLastDuplicates: 'visible',
-    rtl: false,
-    animate: 'scale',
-    position: ['right', 'bottom']
-  }
+    ngOnInit() {
+        this.notification_options = {
+            timeOut: 3000,
+            lastOnBottom: true,
+            clickToClose: true,
+            maxLength: 0,
+            maxStack: 7,
+            showProgressBar: true,
+            pauseOnHover: true,
+            preventDuplicates: false,
+            preventLastDuplicates: 'visible',
+            rtl: false,
+            animate: 'scale',
+            position: ['right', 'bottom']
+        };
+    }
 
-  notificationOnCreate(event) {
-    // console.log(event);
-  }
+    notificationOnCreate(event) {
+      // console.log(event);
+    }
 
-  notificationOnDestroy(event) {
-    // console.log(event);
-  }
+    notificationOnDestroy(event) {
+      // console.log(event);
+    }
 }

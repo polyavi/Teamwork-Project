@@ -133,14 +133,14 @@ ul {
   align-self: center;
 }
 
-header {
+app-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
 }
 
-footer {
+app-footer {
   display: flex;
   flex-direction: column;
 }
