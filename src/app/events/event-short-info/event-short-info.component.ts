@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Event } from './../../../core/models/events';
 import { EventsService } from './../../../core/services/events.service';
+import { UsersService } from './../../../core/services/users.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class EventShortInfoComponent implements OnInit {
     public events: Event[];
     public orderDesc: boolean;
 
-    constructor(private eventsService: EventsService) {
+    constructor(private eventsService: EventsService, public usersService: UsersService) {
 
     }
 

@@ -29,14 +29,12 @@
           </div>
         </div>
       </div>
-      <div class="interaction">
+      <div class="interaction" *ngIf="usersService.loggedIn">
         <!--if project.isUpdateAllowed-->
         <a class="glyphicon glyphicon-edit" [routerLink]="['update',event.id]"></a>
         <!--if project.isDeleteAllowed-->
         <a class="glyphicon glyphicon-remove" [routerLink]="['remove',event.id]"></a>
       </div>
     </div>
-
-  <a class="btn btn-default" routerLink="/projects/create">Create EVENT</a>
  </div>
 </section>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './../../../core/services/users.service';
 
 import { ProjectsService } from './../../../core/services/projects.service';
 import { Project } from './../../../core/models/project';
@@ -16,7 +17,7 @@ export class ViewProjectsComponent implements OnInit {
     private sortBy: string;
     private sortingProperties: string[];
 
-    constructor(private projectsService: ProjectsService) { }
+    constructor(private projectsService: ProjectsService, public usersService: UsersService) { }
 
     ngOnInit() {
         this.projectsService.getAll()

@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-      <div class="interaction">
+      <div class="interaction" *ngIf="usersService.loggedIn">
         <!--if project.isUpdateAllowed-->
         <a [routerLink]="['update',project.id]" class="glyphicon glyphicon-edit"></a>
         <!--if project.isDeleteAllowed-->
@@ -35,5 +35,5 @@
       </div>
     </div>
  </div>
- <a class="btn btn-default" routerLink="/projects/create">Create PROJECT</a>
+ <a class="btn btn-default"  *ngIf="usersService.loggedIn" routerLink="/projects/create">Create PROJECT</a>
 </section>

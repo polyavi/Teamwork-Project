@@ -35,6 +35,6 @@ export class HomeComponent implements OnInit {
         this.events = events;
         // console.log(events);
       });
-  }
 
+  }
 }

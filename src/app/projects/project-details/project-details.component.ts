@@ -5,6 +5,7 @@ import { Project } from './../../../core/models/project';
 import { User } from './../../../core/models/users';
 import { Team } from './../../../core/models/team';
 import { ProjectsService } from './../../../core/services/projects.service';
+import { UsersService } from './../../../core/services/users.service';
 
 @Component({
     selector: 'app-project-details',
@@ -25,7 +26,8 @@ export class ProjectDetailsComponent implements OnInit {
 
     constructor(
       private projectsService: ProjectsService,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      public usersService: UsersService
     ) { }
 
     ngOnInit() {
