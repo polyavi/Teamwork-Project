@@ -10,7 +10,7 @@ import { UsersService } from './../../../core/services/users.service';
   selector: 'app-signup',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [UsersService]
+//   providers: [UsersService]
 })
 export class RegisterComponent {
     registerForm: FormGroup;

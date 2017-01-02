@@ -7,6 +7,9 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
+import { UsersService } from './../../core/services/users.service';
+import { NotificationsService } from './../../../node_modules/angular2-notifications';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +21,9 @@ import { LoginComponent } from './login/login.component';
   declarations: [
       RegisterComponent,
       LoginComponent
+  ],
+  providers: [
+      NotificationsService, UsersService
   ]
 })
 export class UsersModule { }

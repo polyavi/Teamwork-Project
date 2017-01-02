@@ -13,6 +13,7 @@ import { EventsService } from './../../../core/services/events.service';
 export class EventShortInfoComponent implements OnInit {
     public selectedItemName: String;
     public events: Event[];
+    public orderDesc: boolean;
 
     constructor(private eventsService: EventsService) {
 
@@ -29,5 +30,13 @@ export class EventShortInfoComponent implements OnInit {
     markSelectedItem(itemName: string) {
         itemName = itemName || '';
         this.selectedItemName = itemName;
+    }
+
+    onSortChange($event) {
+
+    }
+
+    onOrderChange($event) {
+
     }
 }

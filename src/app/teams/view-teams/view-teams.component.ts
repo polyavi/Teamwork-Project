@@ -19,6 +19,7 @@ export class ViewTeamsComponent implements OnInit {
                 .subscribe(teams => {
                     this.teams = teams;
                     console.log(teams);
+                    console.log(localStorage.getItem('id_token'));
                 });
     }
 }

@@ -40,10 +40,10 @@ export class UsersService {
             .map((res: Response) => {
                 let body = res.json();
                 let token = body.token;
-
+                console.log(token);
                 localStorage.setItem('id_token', token);
                 this.loggedIn = true;
-
+                console.log(localStorage);
                 return { status: res.status, body: body };
             });
     }
@@ -53,7 +53,7 @@ export class UsersService {
             .toPromise()
             .then((res: Response) => {
                 this.loggedIn = true;
-                localStorage.setItem('id_token', res.json().id_token);
+                localStorage.setItem('id_token', res.json().token);
             })
             .catch(this.handleError);
     }
