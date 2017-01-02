@@ -16,7 +16,7 @@ export class UsersService {
     });
 
     private usersUrl = 'api/users';
-    private usersLoginUrl = 'api/users/login';
+    private usersLoginUrl = 'api/users/authenticate';
     public loggedIn = false;
 
     constructor(private http: Http) {
@@ -28,19 +28,16 @@ export class UsersService {
                     .map((res: Response) => res.json().data as User[]);
     }
 
-    // login(username: string, password: string): any {
-    //     // this.getByUsername(username)
-    //     //             .then(
+    login(userToLogin: User): Observable<any> {
+        // console.log(userToLogin);
 
-    //     //             });
-    // }
-
-    login(userToLogin: Object): Observable<any> {
-        return this.http.post(this.usersLoginUrl, userToLogin)
+        let bodyObject = JSON.stringify({ username: userToLogin.username, password: userToLogin.password });
+        return this.http.post(this.usersLoginUrl, bodyObject)
             .map((res: Response) => {
                 let body = res.json();
                 let token = body.token;
-                console.log(token);
+                // let token: string = JSON.parse(userToLogin).result.token;
+                console.log(body);
                 localStorage.setItem('id_token', token);
                 this.loggedIn = true;
                 console.log(localStorage);
