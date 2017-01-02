@@ -16,11 +16,14 @@ export class UsersService {
     });
 
     private usersUrl = 'api/users';
-    private usersLoginUrl = 'api/users/authenticate';
+    private usersLoginUrl = 'api/auth';
     public loggedIn = false;
 
     constructor(private http: Http) {
-        this.getAll().subscribe(users => this.lastId = users.length);
+      // check if we have a token
+      if(localStorage.getItem('id_token')){
+        this.loggedIn = true;
+      }
     }
 
     getAll(): Observable<any> {
@@ -29,20 +32,23 @@ export class UsersService {
     }
 
     login(userToLogin: User): Observable<any> {
-        // console.log(userToLogin);
+      return this.http.post(this.usersLoginUrl,userToLogin)
+        .map((res: Response) => {
+          if(res.json().data){
+            // found the user
+            localStorage.setItem('id_token', res.json().data.token);
+            let userData = res.json().data;
+            delete userData.password;
+            delete userData.token;
+            localStorage.setItem('user', JSON.stringify(userData));
+            this.loggedIn = true;
+          }
+          return res.json();
+        });
+    }
 
-        let bodyObject = JSON.stringify({ username: userToLogin.username, password: userToLogin.password });
-        return this.http.post(this.usersLoginUrl, bodyObject)
-            .map((res: Response) => {
-                let body = res.json();
-                let token = body.token;
-                // let token: string = JSON.parse(userToLogin).result.token;
-                console.log(body);
-                localStorage.setItem('id_token', token);
-                this.loggedIn = true;
-                console.log(localStorage);
-                return { status: res.status, body: body };
-            });
+    public me(){
+      return JSON.parse(localStorage.getItem('user'));
     }
 
     register(body: any): Promise<any> {

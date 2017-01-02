@@ -2,14 +2,16 @@
   <h1>BLACKBOARD</h1>
   <span>project manager</span>
 </div>
-
 <nav>
   <div class="user">
-    <ul>
+    <ul *ngIf="!usersService.loggedIn">
       <li><a routerLink="/login">LOG IN</a></li>
       <li><a routerLink="/signin">SIGN IN</a></li>
     </ul>
-
+    <ul *ngIf="usersService.loggedIn">
+      <li><a href="javascript:void(0)">{{usersService.me().firstName}} {{usersService.me().lastName}}</a></li>
+      <li><a routerLink="/logout">LOG OUT</a></li>
+    </ul>
   </div>
   <ul class="main-nav">
     <li [class.active]="selectedItemName === 'Home'" (click)="markSelectedItem('Home')"><a routerLink="/">HOME</a></li>

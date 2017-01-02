@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { SimpleNotificationsModule, PushNotificationsModule } from 'angular2-notifications';
+
 import { APP_ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
@@ -19,8 +21,8 @@ import { EventsModule } from './events';
 import { TeamsService } from './../core/services/teams.service';
 
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from '../data/in-memory-data.service';
-import { InMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-api';
+import { InMemoryDataService, InMemoryDataOverrideService }  from '../data/in-memory-data.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 @NgModule({
   imports: [
@@ -34,9 +36,11 @@ import { InMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-a
     HomeModule,
     ProjectsModule,
     EventsModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, {
+    InMemoryWebApiModule.forRoot(InMemoryDataOverrideService, {
       passThruUnknownUrl: true
-    })
+    }),
+    SimpleNotificationsModule,
+    PushNotificationsModule
   ],
   declarations: [
     AppComponent,

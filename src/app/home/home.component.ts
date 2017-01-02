@@ -23,17 +23,17 @@ export class HomeComponent implements OnInit {
     this.projectsService.getAll()
       .subscribe(projects => {
         this.projects = projects;
-        console.log(projects);
+        // console.log(projects);
       });
     this.teamsService.getAll()
       .subscribe(teams => {
         this.teams = teams;
-        console.log(teams);
+        // console.log(teams);
       });
     this.eventsService.getAll()
       .subscribe(events => {
         this.events = events;
-        console.log(events);
+        // console.log(events);
       });
   }
 

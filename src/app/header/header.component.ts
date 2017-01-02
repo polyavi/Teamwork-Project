@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from './../../core/services/users.service';
 
 @Component({
   selector: 'header',
@@ -8,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   selectedItemName: String;
 
-  constructor() { }
+  constructor(public usersService: UsersService) { }
 
   ngOnInit() {
   }
-    markSelectedItem(itemName: string) {
-        itemName = itemName || '';
-        this.selectedItemName = itemName;
-    }
+  markSelectedItem(itemName: string) {
+    itemName = itemName || '';
+    this.selectedItemName = itemName;
+  }
 }

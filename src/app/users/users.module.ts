@@ -8,7 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 import { UsersService } from './../../core/services/users.service';
-import { NotificationsService } from './../../../node_modules/angular2-notifications';
+import { NotificationsService } from 'angular2-notifications';
 
 @NgModule({
   imports: [
