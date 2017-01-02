@@ -6,35 +6,33 @@
       <select class="form-control" id="teams-filter" (change)="onFilterChange($event)">
             <option *ngFor="let prop of filterProperties" [selected]="filterBy === prop" value="{{prop}}">{{prop}}</option>
         </select>
-      <label for="mvdb-movies-order">Sort by:</label>
-      <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
-                <option [selected]="orderDesc === false" value="false">Date</option>
-                <option [selected]="orderDesc === true" value="true">A-Z</option>
-            </select>
+      <label for="teams-sort">Sort:</label>
+      <select class="form-control" id="teams-sort" (change)="onSortChange($event)">
+            <option *ngFor="let prop of sortingProperties" [selected]="sortBy === prop" value="{{prop}}">{{prop}}</option>
+        </select>
+      <img src="pin.png" alt="">
     </div>
-    <img src="pin.png" alt="">
-  </div>
-  <hr>
-  <div class="info-container">
-    <div class="short-info" *ngFor="let team of teams | filterTeams:filterBy ">
-      <div class="info-wrapper">
-        <div class="img-info-wrap">
-          <img class="prof-img" src="{{ team.image_url }}" />
-          <div class="main-info">
-            <h3>  <a href="/teams/{{team.id}}" >{{ team.name }}</a></h3>
-            <em *ngIf="team.isFilled"> <span>{{team.isFilled}}</span> </em>
-            <em *ngIf="team.github"> <span>GitHub:</span><a href="{{team.github}}" target="blank"> {{team.github}} </a></em>
+      </div>
+    <hr>
+    <div class="info-container">
+      <div class="short-info" *ngFor="let team of teams | filterTeams:filterBy | sortTeams:sortBy ">
+        <div class="info-wrapper">
+          <div class="img-info-wrap">
+            <img class="prof-img" src="{{ team.image_url }}" />
+            <div class="main-info">
+              <h3>  <a href="/teams/{{team.id}}" >{{ team.name }}</a></h3>
+              <em *ngIf="team.isFilled"> <span>{{team.isFilled}}</span> </em>
+              <em *ngIf="team.github"> <span>GitHub:</span><a href="{{team.github}}" target="blank"> {{team.github}} </a></em>
+            </div>
           </div>
         </div>
+        <div class="interaction">
+          <!--if project.isUpdateAllowed-->
+          <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
+          <!--if project.isDeleteAllowed-->
+          <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
+        </div>
       </div>
-      <div class="interaction">
-        <!--if project.isUpdateAllowed-->
-        <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
-        <!--if project.isDeleteAllowed-->
-        <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
-      </div>
+      <a class="btn btn-default" routerLink="/teams/create">Create  new TEAM</a>
     </div>
-    <a class="btn btn-default" routerLink="/teams/create">Create  new TEAM</a>
-  </div>
-
 </section>

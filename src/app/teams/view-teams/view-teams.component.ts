@@ -14,6 +14,8 @@ export class ViewTeamsComponent implements OnInit {
     public teams: Team[];
     private filterProperties: string[];
     private filterBy: string;
+    private sortBy: string;
+    private sortingProperties: string[];
 
     constructor(private teamsService: TeamsService) { }
     ngOnInit() {
@@ -25,8 +27,13 @@ export class ViewTeamsComponent implements OnInit {
                 });
                 this.filterProperties = ['Filled', 'Enrolling'];
                 this.filterBy = this.filterProperties[1];
+                this.sortingProperties = ['Name', 'Date'];
+                this.sortBy = this.sortingProperties[1];
     }
     onFilterChange(e: any) {
         this.filterBy = e.target.value;
+    }
+    onSortChange(e: any) {
+        this.sortBy = e.target.value;
     }
 }
