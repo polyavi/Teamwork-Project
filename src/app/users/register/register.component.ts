@@ -25,17 +25,24 @@ export class RegisterComponent {
     ) {
         this.registerForm = formBuilder.group({
                 'username': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(30)])],
-                'password': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(30)])]
+                'password': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(30)])],
+                'firstname': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(30)])],
+                'lastname': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(30)])]
+                
+                
             });
     }
 
     signup(value: any) {
         let form = {
             'username': value.username,
-            'password': value.password
+            'password': value.password,
+            'firstname': value.firstname,
+            'lastname': value.lastname
+
         };
 
-        let user = new User(++this.usersService.lastId, value.username, value.password, 'TODO', 'TODO', 'TODO' );
+        let user = new User(++this.usersService.lastId, value.username, value.password,  'TODO', 'TODO' );
         if (!user) { return; }
         this.usersService.register(user)
             .then(() => {
