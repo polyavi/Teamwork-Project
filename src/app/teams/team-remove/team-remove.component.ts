@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 import { Team } from './../../../core/models/team';
 import { TeamsService } from './../../../core/services/teams.service';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-remove',
@@ -12,9 +13,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TeamRemoveComponent implements OnInit {
 
     public id: number;
-    constructor(private teamsService: TeamsService, private route: ActivatedRoute, private router: Router) {
-
-    }
+    constructor(
+        private teamsService: TeamsService,
+        private route: ActivatedRoute,
+        private router: Router,
+        private notificationsService: NotificationsService
+    ) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -24,6 +28,7 @@ export class TeamRemoveComponent implements OnInit {
         this.teamsService
             .remove(this.id)
             .then(() => {
+                this.notificationsService.success('', 'Has been successfully removed!');
                 this.router.navigate(['./teams']);
             });
     }

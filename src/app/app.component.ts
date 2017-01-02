@@ -9,6 +9,7 @@ import { UsersService } from '../core/services/users.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< HEAD
   constructor(
     public usersService:UsersService,
     public router:Router
@@ -29,6 +30,23 @@ export class AppComponent {
     animate: 'scale',
     position: ['right', 'bottom']
   }
+=======
+    public notification_options = {
+        timeOut: 3000,
+        lastOnBottom: true,
+        clickToClose: true,
+        maxLength: 0,
+        maxStack: 7,
+        showProgressBar: true,
+        pauseOnHover: true,
+        preventDuplicates: false,
+        preventLastDuplicates: 'visible',
+        rtl: false,
+        animate: 'scale',
+        position: ['right', 'bottom']
+  };
+
+>>>>>>> 73217fd6740258533fab55d8511bdc945b8042ca
   notificationOnCreate(event) {
     // console.log(event);
   }

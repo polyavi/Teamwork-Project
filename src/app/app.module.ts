@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { SimpleNotificationsModule, PushNotificationsModule } from 'angular2-notifications';
+import { SimpleNotificationsModule, NotificationsService, PushNotificationsModule } from 'angular2-notifications';
 
 import { APP_ROUTES } from './app.routes';
 
@@ -18,9 +18,8 @@ import { HomeModule } from './home/home.module';
 import { ProjectsModule } from './projects';
 import { EventsModule } from './events';
 
-import { TeamsService } from './../core/services/teams.service';
+import { UsersService } from './../core/services/users.service';
 
-// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService, InMemoryDataOverrideService }  from '../data/in-memory-data.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
@@ -36,6 +35,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     HomeModule,
     ProjectsModule,
     EventsModule,
+    SimpleNotificationsModule,
     InMemoryWebApiModule.forRoot(InMemoryDataOverrideService, {
       passThruUnknownUrl: true
     }),
@@ -48,7 +48,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     FooterComponent
   ],
   providers: [
-      TeamsService
+      UsersService, NotificationsService
   ],
   bootstrap: [AppComponent]
 })

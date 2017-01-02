@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
-import { UsersService } from './../../core/services/users.service';
 import { NotificationsService } from 'angular2-notifications';
 
 @NgModule({
@@ -23,7 +22,7 @@ import { NotificationsService } from 'angular2-notifications';
       LoginComponent
   ],
   providers: [
-      NotificationsService, UsersService
+      NotificationsService
   ]
 })
 export class UsersModule { }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { NotificationsService } from 'angular2-notifications';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationsService } from 'angular2-notifications';
 
 import { User } from './../../../core/models/users';
 import { UsersService } from './../../../core/services/users.service';
@@ -11,7 +12,6 @@ import { UsersService } from './../../../core/services/users.service';
   selector: 'app-signup',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-//   providers: [UsersService]
 })
 export class RegisterComponent {
     registerForm: FormGroup;

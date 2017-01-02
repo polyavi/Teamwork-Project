@@ -11,7 +11,7 @@ function sortAsc(a: string, b: string) {
 }
 
 @Pipe({ name: 'sortTeams', pure: true })
-export class SortTaemsPipe implements PipeTransform {
+export class SortTeamsPipe implements PipeTransform {
     TextStreamBase: Team;
 
     transform(items: any[], sortBy: string = 'Name', isDesc: boolean = true): Team[] {

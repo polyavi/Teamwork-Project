@@ -1,4 +1,4 @@
-<div class="signup center-block jumbotron" *ngIf="!authenticated">
+<div class="signup center-block jumbotron" *ngIf="!usersService.loggedIn">
   <p class="heading">SIGNUP</p>
   <form role="form" [formGroup]="registerForm" (ngSubmit)="signup(registerForm.value)">
     <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['username'].valid && registerForm.controls['username'].touched}">

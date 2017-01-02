@@ -5,8 +5,9 @@
 <nav>
   <div class="user">
     <ul *ngIf="!usersService.loggedIn">
-      <li><a routerLink="/login">LOG IN</a></li>
-      <li><a routerLink="/signin">SIGN IN</a></li>
+      <li *ngIf="!usersService.loggedIn"><a routerLink="/login">LOG IN</a></li>
+      <li *ngIf="usersService.loggedIn"><a routerLink="/login">LOG OUT</a></li>
+      <li *ngIf="!usersService.loggedIn"><a routerLink="/signin">SIGN IN</a></li>
     </ul>
     <ul *ngIf="usersService.loggedIn">
       <li><a href="javascript:void(0)">{{usersService.me()?.firstName}} {{usersService.me()?.lastName}}</a></li>
