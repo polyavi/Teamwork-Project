@@ -17,6 +17,7 @@ export class UsersService {
 
     private usersUrl = 'api/users';
     private usersLoginUrl = 'api/users/login';
+    public loggedIn = false;
 
     constructor(private http: Http) {
         this.getAll().subscribe(users => this.lastId = users.length);
@@ -27,17 +28,33 @@ export class UsersService {
                     .map((res: Response) => res.json().data as User[]);
     }
 
-    login(username: string, password: string): any {
-        // this.getByUsername(username)
-        //             .then(
+    // login(username: string, password: string): any {
+    //     // this.getByUsername(username)
+    //     //             .then(
 
-        //             });
+    //     //             });
+    // }
+
+    login(userToLogin: Object): Observable<any> {
+        return this.http.post(this.usersLoginUrl, userToLogin)
+            .map((res: Response) => {
+                let body = res.json();
+                let token = body.token;
+
+                localStorage.setItem('id_token', token);
+                this.loggedIn = true;
+
+                return { status: res.status, body: body };
+            });
     }
 
     register(body: any): Promise<any> {
         return this.http.post(this.usersUrl, JSON.stringify( body ), {headers: this.headers} )
             .toPromise()
-            .then((res: Response) => localStorage.setItem('id_token', res.json().id_token))
+            .then((res: Response) => {
+                this.loggedIn = true;
+                localStorage.setItem('id_token', res.json().id_token);
+            })
             .catch(this.handleError);
     }
 
@@ -46,6 +63,7 @@ export class UsersService {
     // }
 
     public logoutUser(): void {
+        this.loggedIn = false;
         localStorage.clear();
     }
 

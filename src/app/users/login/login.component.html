@@ -1,4 +1,4 @@
-<div class="login center-block jumbotron" *ngIf="!authenticated">
+<div class="login center-block jumbotron" *ngIf="!usersService.loggedIn"> 
   <p class="heading">LOGIN</p>
   <form role="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
     <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
@@ -15,9 +15,9 @@
     <button class="btn btn-default" routerLink="/signin">Click here to Signup</button> 
   </form>
 </div>
-<div class="login center-block jumbotron text-center" *ngIf="authenticated">
+<div class="login center-block jumbotron text-center" *ngIf="usersService.loggedIn">
   <!-- <img src="{{profile.picture}}" />
-  <h2>Welcome, {{profile.email}}</h2>
-  <a (click)="logout()">Logout</a> -->
+  <h2>Welcome, {{profile.email}}</h2>-->
+  <a (click)="logout()">Logout</a>
   <p>You are logged in.</p>
 </div>
