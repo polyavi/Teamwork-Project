@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 import { SimpleNotificationsComponent } from 'angular2-notifications';
-
+import { UsersService } from '../core/services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,12 @@ import { SimpleNotificationsComponent } from 'angular2-notifications';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(
+    public usersService:UsersService,
+    public router:Router
+  ){
+
+  }
   public notification_options = {
     timeOut: 3000,
     lastOnBottom: true,

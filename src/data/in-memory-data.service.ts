@@ -94,8 +94,7 @@ export class InMemoryDataOverrideService extends InMemoryDataService {
           status: STATUS.OK
         });
       } else {
-        resOptions = createErrorResponse(req, STATUS.NOT_FOUND,
-           `'${collectionName}' with id='${id}' not found`);
+        resOptions = createErrorResponse(req, STATUS.NOT_FOUND, `'${collectionName}' with id='${id}' not found`);
       }
 
       emitResponse(responseObserver, req, resOptions);
@@ -109,10 +108,10 @@ export class InMemoryDataOverrideService extends InMemoryDataService {
     return new Observable<Response>((responseObserver: Observer<Response>) => {
       // console.log('HTTP POST override');
       let resOptions: ResponseOptions;
-      const {id, query, collection, collectionName, headers, req} = interceptorArgs.requestInfo;
+      const {id, collection, collectionName, headers, req, resourceUrl} = interceptorArgs.requestInfo;
+
       let data = collection;
 
-      // console.log(headers,req);
       if (id) {
         data = this.findById(collection, id);
       } else if(req.url.toString() == 'api/auth'){ // custom auth method
@@ -122,8 +121,8 @@ export class InMemoryDataOverrideService extends InMemoryDataService {
           user['token'] = btoa(`${user.username}:${user.id}`);
           data = user;
         }
-      } else if (query) {
-        data = this.applyQuery(collection, query);
+      } else {
+        collection.push(JSON.parse(req.getBody()));
       }
 
       if (data) {
@@ -133,8 +132,7 @@ export class InMemoryDataOverrideService extends InMemoryDataService {
           status: STATUS.OK
         });
       } else {
-        resOptions = createErrorResponse(req, STATUS.NOT_FOUND,
-           `'${collectionName}' with id='${id}' not found`);
+        resOptions = createErrorResponse(req, STATUS.NOT_FOUND,`'${collectionName}' with id='${id}' not found`);
       }
 
       emitResponse(responseObserver, req, resOptions);

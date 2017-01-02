@@ -49,9 +49,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/login']);
         });
     }
-
-    logout() {
-        this.usersService.logoutUser();
-        this.router.navigate(['/']);
+    public logout(){
+      this.usersService.logoutUser();
+      this.router.navigate(['/']);
     }
 }

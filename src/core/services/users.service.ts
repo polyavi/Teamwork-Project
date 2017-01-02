@@ -24,6 +24,9 @@ export class UsersService {
       if(localStorage.getItem('id_token')){
         this.loggedIn = true;
       }
+      // set last id
+      this.getAll().subscribe((users)=>console.log(users));
+      // this.lastId = this.getAll().length;
     }
 
     getAll(): Observable<any> {
@@ -54,10 +57,7 @@ export class UsersService {
     register(body: any): Promise<any> {
         return this.http.post(this.usersUrl, JSON.stringify( body ), {headers: this.headers} )
             .toPromise()
-            .then((res: Response) => {
-                this.loggedIn = true;
-                localStorage.setItem('id_token', res.json().token);
-            })
+            .then((res: Response) => res.json())
             .catch(this.handleError);
     }
 
