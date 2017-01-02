@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Team } from './../../../core/models/team';
 import { User } from './../../../core/models/users';
 import { TeamsService } from './../../../core/services/teams.service';
+import { UsersService } from './../../../core/services/users.service';
 
 @Component({
     selector: 'app-team-details',
@@ -20,6 +21,7 @@ export class TeamDetailsComponent implements OnInit {
     public github: string;
     public owner_id: number;
     public users: User[];
+    public isFilled: string;
     public maxUsers: number;
     public image_url: string;
 
@@ -40,6 +42,7 @@ export class TeamDetailsComponent implements OnInit {
                             this.github = team.github;
                             this.owner_id = team.owner_id;
                             this.users = team.users;
+                            this.isFilled = team.isFilled;
                             this.maxUsers = team.maxUsers;
                             this.image_url = team.image_url;
                         });

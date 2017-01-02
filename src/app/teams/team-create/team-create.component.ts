@@ -27,12 +27,12 @@ export class TeamCreateComponent implements OnInit {
      }
 
     ngOnInit() {
-        this.model = new Team(0, '', '', new Date(), '', '', 3);
+        this.model = new Team(0, '', '', new Date(), '','', '', 3);
     }
 
     create(): void {
         const team = new Team(++this.teamsService.lastId, this.model.name, this.model.form, this.model.createdAt, this.model.github,
-            this.model.image_url, this.model.maxUsers);
+            'enrolling', this.model.image_url, this.model.maxUsers);
 
         if (!team) { return; }
         this.teamsService.add(team)

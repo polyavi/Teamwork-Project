@@ -2,11 +2,10 @@
   <div class="pins">
     <img src="pin.png" alt="">
     <div class="form-wapper">
-      <label for="mvdb-movies-sort">Filter by:</label>
-      <select class="form-control" id="mvdb-movies-sort" (change)="onSortChange($event)">
-                <option [selected]="orderDesc === false" value="false">Filled</option>
-                <option [selected]="orderDesc === true" value="true">Enrolling</option>
-            </select>
+      <label for="teams-filter">Filter by:</label>
+      <select class="form-control" id="teams-filter" (change)="onFilterChange($event)">
+            <option *ngFor="let prop of filterProperties" [selected]="filterBy === prop" value="{{prop}}">{{prop}}</option>
+        </select>
       <label for="mvdb-movies-order">Sort by:</label>
       <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
                 <option [selected]="orderDesc === false" value="false">Date</option>
@@ -17,13 +16,13 @@
   </div>
   <hr>
   <div class="info-container">
-    <div class="short-info" *ngFor="let team of teams">
+    <div class="short-info" *ngFor="let team of teams | filterTeams:filterBy ">
       <div class="info-wrapper">
         <div class="img-info-wrap">
           <img class="prof-img" src="{{ team.image_url }}" />
           <div class="main-info">
             <h3>  <a href="/teams/{{team.id}}" >{{ team.name }}</a></h3>
-            <em *ngIf="team.form"> <span>Form: {{team.form}}</span> </em>
+            <em *ngIf="team.isFilled"> <span>{{team.isFilled}}</span> </em>
             <em *ngIf="team.github"> <span>GitHub:</span><a href="{{team.github}}" target="blank"> {{team.github}} </a></em>
           </div>
         </div>

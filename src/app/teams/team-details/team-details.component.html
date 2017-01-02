@@ -11,10 +11,13 @@
           <img class="prof-img" src="{{ image_url }}" />
           <div class="main-info">
             <h3>  <a href="/teams/{{id}}" >{{ name }}</a></h3>
+            <em *ngIf="isFilled"> <span>{{isFilled}}</span> </em>
             <em *ngIf="form"> <span>Form: {{form}}</span> </em>
             <em *ngIf="github"> <span>GitHub:</span><a href="{{github}}" target="blank"> {{github}} </a></em>
             <em *ngIf="createdAt"> <span>Created on: {{createdAt | date:'medium'}}</span> </em>
-              <em *ngIf="owner"> <span>Owner: {{owner}}</span> </em>
+            <ul class="teammates">
+              <li *ngFor="let user of users"><a href="/users/{{user.id}}">{{user.name}}</a></li>
+            </ul>
           </div>
         </div>
       </div>
