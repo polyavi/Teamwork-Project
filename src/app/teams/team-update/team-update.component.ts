@@ -1,5 +1,6 @@
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 import { Team } from './../../../core/models/team';
 import { User } from './../../../core/models/users';
@@ -28,7 +29,8 @@ export class TeamUpdateComponent implements OnInit {
     constructor(
       private teamsService: TeamsService,
       private route: ActivatedRoute,
-      private router: Router
+      private router: Router,
+      private notificationsService: NotificationsService
     ) { }
 
     ngOnInit() {
@@ -53,7 +55,8 @@ export class TeamUpdateComponent implements OnInit {
     update() {
         this.model = new Team(this.id, this.name, this.form, this.createdAt, this.github, this.isFilled, this.image_url, this.maxUsers);
         this.teamsService.update(this.model)
-          .then(() => {
+            .then(() => {
+                this.notificationsService.success('Team', 'Successfully updated!');
                 this.router.navigate(['./teams']);
             });
         this.emitter.emit(this.model);

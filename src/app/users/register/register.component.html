@@ -1,5 +1,5 @@
 <div class="signup center-block jumbotron" *ngIf="!usersService.loggedIn">
-  <p class="heading">SIGNUP</p>
+  <p class="heading">SIGN UP</p>
   <form role="form" [formGroup]="registerForm" (ngSubmit)="signup(registerForm.value)">
     <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['username'].valid && registerForm.controls['username'].touched}">
       <label for="username">Username</label>

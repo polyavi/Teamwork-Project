@@ -7,33 +7,32 @@ export const TEAMS: any[] = [{
   github: 'https://github.com/Team-Directive3/Teamwork-Project',
   owner_id: 1,
   users: [{
-    id: '1',
-    name: 'lonelyUser',
-    username: 'lonelyUser',
-    password: '123456',
-    firstName: 'Ginyo',
-    lastName: 'Ginev'
+      id: '1',
+      name: 'lonelyUser',
+      username: 'lonelyUser',
+      password: '123456',
+      firstName: 'Ginyo',
+      lastName: 'Ginev'
   },
-    {
+  {
       id: '3',
       name: 'user',
       username: 'user',
       password: '123',
       firstName: 'Simo',
       lastName: 'Ninov'
-    },
-    {
+  },
+  {
       id: '4',
       name: 'easyToJoin',
       username: 'aaa',
       password: 'aaa',
       firstName: 'aaa',
       lastName: 'aaa'
-    }
-  ],
+  }],
   isFilled: 'filled',
   maxUsers: 3,
-  image_url: ''
+  image_url: 'https://thumbs.dreamstime.com/t/blackboard-chalkboard-texture-empty-black-chalk-traces-59496447.jpg'
 },
   {
     id: '2',
@@ -61,12 +60,12 @@ export const TEAMS: any[] = [{
       }],
     isFilled: 'enrolling',
     maxUsers: 3,
-    image_url: ''
+    image_url: 'https://udemy-images.udemy.com/course/750x422/769390_7c69_3.jpg'
   },
   {
     id: '3',
-    name: 'Directive3',
-    form: 'onsite',
+    name: 'DotaII',
+    form: 'online',
     // createdAt: new Date(2017, 1, 1),
     createdAt: '2016-12-30T16:42:13.840Z',
     github: 'https://github.com/Team-Directive3/Teamwork-Project',
@@ -89,7 +88,7 @@ export const TEAMS: any[] = [{
       }],
     isFilled: 'enrolling',
     maxUsers: 3,
-    image_url: ''
+    image_url: 'http://i1.2pcdn.com/node14/image/game/50da9450c01d0e168514075c/50e13d0061fc7025162e958c/20121231022213a0dczsyrom2zmu9j.jpg'
   },
   {
     id: '4',
@@ -178,5 +177,5 @@ export const TEAMS: any[] = [{
       }],
     isFilled: 'filled',
     maxUsers: 2,
-    image_url: 'https://pixabay.com/en/wave-sea-water-blue-surf-1215449/'
+    image_url: 'https://static.pexels.com/photos/5412/water-blue-ocean.jpg'
   }];

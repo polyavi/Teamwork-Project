@@ -3,7 +3,7 @@
   <form role="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
     <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
       <label for="username">Username</label>
-      <input class="form-control" type="text" placeholder="JohnyB" [formControl]="loginForm.controls['username']">
+      <input class="form-control" type="text" placeholder="Username" [formControl]="loginForm.controls['username']">
       <div *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched" class="alert alert-danger">You must add a username.</div>
     </div>
     <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
@@ -12,7 +12,7 @@
         <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">You must add a password.</div>
     </div>
     <button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">Submit</button>
-    <button class="btn btn-default" routerLink="/signin">Click to Signup</button> 
+    <button class="btn btn-default" routerLink="/signin">Click to Sign up</button> 
   </form>
 </div>
 <div class="login center-block jumbotron text-center" *ngIf="usersService.loggedIn">
