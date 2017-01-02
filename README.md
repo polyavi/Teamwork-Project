@@ -24,6 +24,8 @@ Blackboard SPA in which you can:
 
 ## Live demo
 [**Blackboard**](https://raw.githack.com)
+## Link to repository
+[**Github**](https://github.com/Team-Directive3)
 
 ## Video demo
 
