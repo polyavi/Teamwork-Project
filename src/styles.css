@@ -177,6 +177,7 @@ footer {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    width: 45%;
 }
 .info-wrapper, .main-info {
     display: flex;
@@ -297,5 +298,8 @@ h3, .main-info h3 a {
       display: flex;
       flex-direction: column;
       align-items: center;
+  }
+  .short-info{
+    width: 80%;
   }
 }
