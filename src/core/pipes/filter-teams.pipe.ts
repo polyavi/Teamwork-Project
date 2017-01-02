@@ -3,12 +3,12 @@ import { Team } from './../models/team';
 
 @Pipe({ name: 'filterTeams', pure: true })
 export class FilterTeamsPipe implements PipeTransform {
-    transform(items: Team[], filterValue: string = ''): Team[] {
+    transform(items: Team[], filterValue: string = 'All'): Team[] {
         if (!items) {
             return;
         }
 
-        if (filterValue === '') {
+        if (filterValue === 'All') {
             return items;
         }
 

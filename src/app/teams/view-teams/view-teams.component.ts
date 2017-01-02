@@ -26,8 +26,8 @@ export class ViewTeamsComponent implements OnInit {
                     console.log(teams);
                     console.log(localStorage.getItem('id_token'));
                 });
-                this.filterProperties = ['Filled', 'Enrolling'];
-                this.filterBy = this.filterProperties[1];
+                this.filterProperties = ['All', 'Filled', 'Enrolling'];
+                this.filterBy = this.filterProperties[0];
                 this.sortingProperties = ['Name', 'Date'];
                 this.sortBy = this.sortingProperties[1];
     }

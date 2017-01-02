@@ -25,8 +25,8 @@ export class ViewProjectsComponent implements OnInit {
                     this.projects = projects;
                     console.log(projects);
                 });
-                this.filterProperties = ['Finished', 'In progress'];
-                this.filterBy = this.filterProperties[1];
+                this.filterProperties = ['All', 'Finished', 'In progress'];
+                this.filterBy = this.filterProperties[0];
                 this.sortingProperties = ['Title', 'Date'];
                 this.sortBy = this.sortingProperties[1];
               }
