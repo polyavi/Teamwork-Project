@@ -24,8 +24,13 @@ export class TeamDetailsComponent implements OnInit {
     public isFilled: string;
     public maxUsers: number;
     public image_url: string;
+    public isOwner: boolean;
+    public Owner: User;
 
-    constructor(public usersService: UsersService, private teamsService: TeamsService, private route: ActivatedRoute) {
+    constructor(
+        public usersService: UsersService,
+        private teamsService: TeamsService,
+        private route: ActivatedRoute) {
 
     }
 
@@ -45,6 +50,13 @@ export class TeamDetailsComponent implements OnInit {
                             this.isFilled = team.isFilled;
                             this.maxUsers = team.maxUsers;
                             this.image_url = team.image_url;
+
+                            let user: User = JSON.parse(localStorage.getItem('user'));
+                            this.isOwner = this.owner_id == user.id;
+
+                            this.usersService.getById(team.owner_id).subscribe((ownerUser: User) => {
+                                this.Owner = ownerUser;
+                            });
                         });
     }
 }

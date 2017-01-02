@@ -15,6 +15,7 @@
             <em *ngIf="form"> <span>Form: {{form}}</span> </em>
             <em *ngIf="github"> <span>GitHub:</span><a href="{{github}}" target="blank"> {{github}} </a></em>
             <em *ngIf="createdAt"> <span>Created on: {{createdAt | date:'medium'}}</span> </em>
+            <em *ngIf="Owner"> <span>Owner: {{ Owner.username }}</span> </em>
             <span>Users:</span>
             <ul class="teammates">
               <li *ngFor="let user of users"><a href="/users/{{user.id}}">{{user.name}}</a></li>
@@ -23,10 +24,8 @@
         </div>
       </div>
       <div class="interaction" *ngIf="usersService.loggedIn">
-        <!--if project.isUpdateAllowed-->
-        <a [routerLink]="['update',id]" class="glyphicon glyphicon-edit"></a>
-        <!--if project.isDeleteAllowed-->
-        <a [routerLink]="['remove',id]" class="glyphicon glyphicon-remove"></a>
+        <a *ngIf="isOwner" [routerLink]="['/teams/update',id]" class="glyphicon glyphicon-edit"></a>
+        <a *ngIf="isOwner" [routerLink]="['/teams/remove',id]" class="glyphicon glyphicon-remove"></a>    
       </div>
     </div>
   </div>

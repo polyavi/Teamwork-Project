@@ -50,6 +50,12 @@ export class UsersService {
         });
     }
 
+    getById(id: number): Observable<User> {
+        const url = this.usersUrl + '/' +  id;
+        return this.http.get(url)
+            .map((res: Response) => res.json().data as User);
+    }
+
     me() {
       return JSON.parse(localStorage.getItem('user'));
     }
