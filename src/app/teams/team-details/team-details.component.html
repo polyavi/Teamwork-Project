@@ -5,7 +5,7 @@
   </div>
   <hr>
   <div class="info-wrapper">
-    <div class="short-info">
+    <div class="long-info">
       <div class="info-wrapper">
         <div class="img-info-wrap">
           <img class="prof-img" src="{{ image_url }}" />
@@ -15,6 +15,7 @@
             <em *ngIf="form"> <span>Form: {{form}}</span> </em>
             <em *ngIf="github"> <span>GitHub:</span><a href="{{github}}" target="blank"> {{github}} </a></em>
             <em *ngIf="createdAt"> <span>Created on: {{createdAt | date:'medium'}}</span> </em>
+            <span>Users:</span>
             <ul class="teammates">
               <li *ngFor="let user of users"><a href="/users/{{user.id}}">{{user.name}}</a></li>
             </ul>
