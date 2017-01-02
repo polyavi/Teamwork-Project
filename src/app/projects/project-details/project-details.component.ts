@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Project } from './../../../core/models/project';
 import { User } from './../../../core/models/users';
+import { Team } from './../../../core/models/team';
 import { ProjectsService } from './../../../core/services/projects.service';
 
 @Component({
@@ -15,9 +16,11 @@ export class ProjectDetailsComponent implements OnInit {
     project: Project;
     public id: number;
     public title: string;
+    public createdAt: string;
     public demo: string;
     public github: string;
-  //  public team: Team;
+    public isFinished: string;
+    public team: Team;
     public image_url: string;
 
     constructor(
@@ -33,9 +36,11 @@ export class ProjectDetailsComponent implements OnInit {
       this.projectsService.getById(this.id)
                         .subscribe(project => {
                             this.title = project.title;
+                            this.createdAt = project.createdAt;
                             this.demo = project.demo;
                             this.github = project.github;
-                          //  this.team = project.team;
+                            this.isFinished = project.isFinished;
+                            this.team = project.team;
                             this.image_url = project.image_url;
                         });
     }

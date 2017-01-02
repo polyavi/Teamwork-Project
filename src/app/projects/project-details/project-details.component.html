@@ -5,14 +5,17 @@
   </div>
   <hr>
   <div class="info-wrapper">
-    <div class="short-info">
+    <div class="long-info">
       <div class="info-wrapper">
         <div class="img-info-wrap">
           <img class="prof-img" src="{{ image_url }}" />
           <div class="main-info">
             <h3>{{ title }} </h3>
+            <em *ngIf="createdAt"> <span>{{createdAt | date:'medium'}}</span> </em>
             <em *ngIf="demo"> <span>Demo:</span><a href="{{demo}}" target="blank"> {{demo}} </a></em>
             <em *ngIf="github"> <span>GitHub:</span><a href="{{github}}" target="blank"> {{github}} </a></em>
+            <em *ngIf="isFinished"> <span>{{isFinished}}</span> </em>
+            <em *ngIf="team"> <span>Team:</span><a href="/teams/{{team.id}}">{{team.name}}</a></em>
           </div>
         </div>
       </div>
