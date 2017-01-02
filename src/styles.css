@@ -172,12 +172,14 @@ footer {
     padding: 10px;
 }
 
-.short-info {
+.short-info, .long-info {
     background: #ffffff;
     display: flex;
     flex-direction: column;
     margin: 10px;
-    width: 45%;
+}
+.short-info{
+      width: 45%;
 }
 .info-wrapper, .main-info {
     display: flex;

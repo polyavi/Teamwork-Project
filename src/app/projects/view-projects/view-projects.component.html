@@ -2,27 +2,26 @@
   <div class="pins">
     <img src="pin.png" alt="">
     <div class="form-wapper">
-      <label for="mvdb-movies-sort">Filter by:</label>
-      <select class="form-control" id="mvdb-movies-sort" (change)="onSortChange($event)">
-                <option [selected]="orderDesc === false" value="false">Finished</option>
-                <option [selected]="orderDesc === true" value="true">In progress</option>
-            </select>
-      <label for="mvdb-movies-order">Sort by:</label>
-      <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
-                <option [selected]="orderDesc === false" value="false">Date</option>
-                <option [selected]="orderDesc === true" value="true">A-Z</option>
-            </select>
+      <label for="projects-filter">Filter by:</label>
+      <select class="form-control" id="projects-filter" (change)="onFilterChange($event)">
+            <option *ngFor="let prop of filterProperties" [selected]="filterBy === prop" value="{{prop}}">{{prop}}</option>
+        </select>
+      <label for="projects-sort">Sort:</label>
+      <select class="form-control" id="projects-sort" (change)="onSortChange($event)">
+            <option *ngFor="let prop of sortingProperties" [selected]="sortBy === prop" value="{{prop}}">{{prop}}</option>
+        </select>
     </div>
     <img src="pin.png" alt="">
   </div>
   <hr>
   <div class="info-container">
-    <div class="short-info" *ngFor="let project of projects; let i=index">
+    <div class="short-info" *ngFor="let project of projects | filterProjects:filterBy | sortProjects:sortBy ">
       <div class="info-wrapper">
         <div class="img-info-wrap">
           <img class="prof-img" src="{{ project.image_url }}" />
           <div class="main-info">
             <h3>  <a href="/projects/{{project.id}}" > {{ project.title }} </a></h3>
+            <em *ngIf="project.isFinished"> <span>{{project.isFinished}}</span> </em>
             <em *ngIf="project.demo"> <span>Demo:</span><a href="{{project.demo}}" target="blank"> {{project.demo}} </a></em>
             <em *ngIf="project.github"> <span>GitHub:</span><a href="{{project.github}}" target="blank"> {{project.github}} </a></em>
           </div>
@@ -35,7 +34,6 @@
         <a [routerLink]="['remove',project.id]" class="glyphicon glyphicon-remove"></a>
       </div>
     </div>
-
-  <a class="btn btn-default" routerLink="/projects/create">Create PROJECT</a>
  </div>
+ <a class="btn btn-default" routerLink="/projects/create">Create PROJECT</a>
 </section>

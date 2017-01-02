@@ -22,12 +22,12 @@ export class ProjectCreateComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.model = new Project(0, '', '', '', '');
+        this.model = new Project(0, '','','', '', '','');
     }
 
     create() {
-        const project = new Project(++this.projectsService.lastId, this.model.title, this.model.demo, this.model.github,
-            this.model.image_url);
+        const project = new Project(++this.projectsService.lastId, this.model.title,this.model.createdAt, this.model.demo, this.model.github,
+            this.model.isFinished, this.model.image_url);
 
         if (!project) { return; }
         this.projectsService.add(project)

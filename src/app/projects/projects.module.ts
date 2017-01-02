@@ -11,6 +11,9 @@ import { ProjectRemoveComponent } from './project-remove/project-remove.componen
 import { ProjectsService } from './../../core/services/projects.service';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 
+import { FilterProjectsPipe } from './../../core/pipes/filter-projects.pipe';
+import { SortProjectsPipe } from './../../core/pipes/sort-projects.pipe';
+
 @NgModule({
     imports: [
         FormsModule,
@@ -22,7 +25,9 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
         ProjectCreateComponent,
         ProjectUpdateComponent,
         ProjectDetailsComponent,
-        ProjectRemoveComponent
+        ProjectRemoveComponent,
+        FilterProjectsPipe,
+        SortProjectsPipe
     ],
     providers: [
         ProjectsService
