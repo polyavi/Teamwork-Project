@@ -1,6 +1,5 @@
 export const USERS: any[] = [{
     id: '1',
-    name: 'lonelyUser',
     username: 'lonelyUser',
     password: '123456',
     firstName: 'Ginyo',
@@ -8,7 +7,6 @@ export const USERS: any[] = [{
 },
 {
     id: '2',
-    name: 'lonelyUser2',
     username: 'lonelyUser2',
     password: '123456',
     firstName: 'Ivan',
@@ -16,7 +14,6 @@ export const USERS: any[] = [{
 },
 {
     id: '3',
-    name: 'user',
     username: 'user',
     password: '123',
     firstName: 'Simo',
@@ -24,7 +21,6 @@ export const USERS: any[] = [{
 },
 {
     id: '4',
-    name: 'easyToJoin',
     username: 'aaa',
     password: 'aaa',
     firstName: 'aaa',
