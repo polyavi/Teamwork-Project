@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
      }
 
     ngOnInit() {
-        //  this.notificationsService.success('Test', 'AAA!');
+
     }
 
     login(value: any) {
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
         };
 
         this.usersService.login(this.loginForm.value).subscribe((res: any) => {
-            // console.log(res.message);
             this.notificationsService.success('Success', 'Successfuly logged in!');
             this.router.navigate(['/']);
         },

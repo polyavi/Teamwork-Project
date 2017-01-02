@@ -32,9 +32,9 @@ export class UsersService {
     }
 
     login(userToLogin: User): Observable<any> {
-      return this.http.post(this.usersLoginUrl,userToLogin)
+      return this.http.post(this.usersLoginUrl, userToLogin)
         .map((res: Response) => {
-          if(res.json().data){
+          if(res.json().data) {
             // found the user
             localStorage.setItem('id_token', res.json().data.token);
             let userData = res.json().data;
@@ -47,7 +47,7 @@ export class UsersService {
         });
     }
 
-    public me(){
+    me() {
       return JSON.parse(localStorage.getItem('user'));
     }
 
