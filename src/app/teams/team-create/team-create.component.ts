@@ -41,7 +41,7 @@ export class TeamCreateComponent implements OnInit {
 
     create(): void {
         const team = new Team(++this.teamsService.lastId, this.model.name, this.model.form, this.model.createdAt, this.model.github,
-            'enrolling', this.model.image_url, this.model.maxUsers);
+             this.model.image_url,'enrolling', this.model.maxUsers);
 
         if (!team) { return; }
         this.teamsService.add(team)

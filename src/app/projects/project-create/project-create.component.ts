@@ -26,7 +26,7 @@ export class ProjectCreateComponent implements OnInit {
     }
 
     create() {
-        const project = new Project(++this.projectsService.lastId, this.model.title,this.model.createdAt, this.model.demo, this.model.github,
+        const project = new Project(++this.projectsService.lastId, this.model.title, this.model.demo, this.model.github,this.model.createdAt,
             this.model.isFinished, this.model.image_url);
 
         if (!project) { return; }
