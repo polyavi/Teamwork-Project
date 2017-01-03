@@ -27,9 +27,9 @@
             </div>
           </div>
         </div>
-        <div class="interaction"  *ngIf="usersService.loggedIn">
-          <a *ngIf="team.isOwner" [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
-          <a *ngIf="team.isOwner" [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
+        <div class="interaction"  *ngIf="usersService.getLoggedUser()?.id == team.owner_id">
+          <a [routerLink]="['update',team.id]" class="glyphicon glyphicon-edit"></a>
+          <a [routerLink]="['remove',team.id]" class="glyphicon glyphicon-remove"></a>
         </div>
       </div>
     </div>

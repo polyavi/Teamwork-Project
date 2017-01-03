@@ -1,6 +1,12 @@
 p{
   color: #ffffff;
   text-align: center;
-  margin-top: 0;
-  font-size: 0.8em;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  bottom: 20px;
+}
+hr{
+  width: 80%;
+  align-self: center;
+  margin: 20px;
 }

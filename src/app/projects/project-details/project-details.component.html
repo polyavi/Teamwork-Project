@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="interaction" *ngIf="usersService.loggedIn">
+      <div class="interaction" *ngIf="usersService.getLoggedUser()?.id == owner_id">
         <a [routerLink]="['/projects/update',id]" class="glyphicon glyphicon-edit"></a>
         <a [routerLink]="['/projects/remove',id]" class="glyphicon glyphicon-remove"></a>
       </div>
