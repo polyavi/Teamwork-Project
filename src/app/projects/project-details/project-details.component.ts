@@ -17,7 +17,7 @@ export class ProjectDetailsComponent implements OnInit {
     project: Project;
     public id: number;
     public title: string;
-    public createdAt: string;
+    public createdAt: Date;
     public owner_id: number;
     public demo: string;
     public github: string;
