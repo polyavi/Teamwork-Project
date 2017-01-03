@@ -14,7 +14,7 @@ export class ProjectUpdateComponent implements OnInit {
     public model: Project;
     public id: number;
     public title: string;
-    public createdAt: string;
+    public createdAt: Date;
     public demo: string;
     public github: string;
     public isFinished: string;
@@ -48,7 +48,7 @@ export class ProjectUpdateComponent implements OnInit {
     }
 
     update() {
-        this.model = new Project(this.id, this.title, this.createdAt, this.demo, this.github, this.isFinished, this.owner_id, this.image_url);
+        this.model = new Project(this.id, this.title, this.demo, this.github, this.createdAt, this.isFinished, this.owner_id, this.image_url);
         this.projectsService.update(this.model)
                     .then(() => {
                         this.notificationsService.success('Success', 'Project ' + this.model.title + ' has been successfully updated!');
