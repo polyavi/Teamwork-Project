@@ -1,0 +1,40 @@
+<section class="project-card">
+  <div class="pins">
+    <img src="pin.png" alt="">
+    <img src="pin.png" alt="">
+  </div>
+  <hr>
+  <div class="info-wrapper">
+    <form #eventsForm="ngForm" (ngSubmit)="create(); eventsForm.reset()">
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="Event_title"> Title:</label>
+          <input id="Event_title" class="form-control" type="text" name="title" [(ngModel)]="model.title" #tbName="ngModel" required placeholder="title" />
+          <div [hidden]="tbName.untouched || tbName.valid">
+            Invalid Event title
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Event_when"> when:</label>
+          <input id="Event_when" class="form-control" type="datetime-local" name="when" [(ngModel)]="model.when" placeholder="when" required />
+        </div>
+        <div class="form-group">
+          <label for="Event_where"> where:</label>
+          <input id="Event_where" class="form-control" type="text" name="where" [(ngModel)]="model.where" placeholder="where" required />
+        </div>
+        <div class="form-group">
+          <label for="Event_purpose"> purpose:</label>
+          <input id="Event_purpose" class="form-control" type="text" name="purpose" [(ngModel)]="model.purpose" placeholder="purpose" required />
+        </div>
+        <div class="form-group">
+          <label for="Event_image_url"> Image address:</label>
+          <input id="Event_image_url" class="form-control" type="text" name="image_url" [(ngModel)]="model.image_url" placeholder="Image address" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

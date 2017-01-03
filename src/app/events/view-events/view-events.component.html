@@ -2,16 +2,14 @@
   <div class="pins">
     <img src="pin.png" alt="">
     <div class="form-wapper">
-      <label for="mvdb-movies-sort">Filter by:</label>
-      <select class="form-control" id="mvdb-movies-sort" (change)="onSortChange($event)">
-                <option [selected]="orderDesc === false" value="false">Upcoming</option>
-                <option [selected]="orderDesc === true" value="true">Past</option>
-            </select>
-      <label for="mvdb-movies-order">Sort by:</label>
-      <select class="form-control" id="mvdb-movies-order" (change)="onOrderChange($event)">
-                <option [selected]="orderDesc === false" value="false">Date</option>
-                <option [selected]="orderDesc === true" value="true">A-Z</option>
-            </select>
+      <label for="events-filter">Filter by:</label>
+      <select class="form-control" id="events-filter" (change)="onFilterChange($event)">
+            <option *ngFor="let prop of filterProperties" [selected]="filterBy === prop" value="{{prop}}">{{prop}}</option>
+        </select>
+      <label for="events-sort">Sort:</label>
+      <select class="form-control" id="events-sort" (change)="onSortChange($event)">
+            <option *ngFor="let prop of sortingProperties" [selected]="sortBy === prop" value="{{prop}}">{{prop}}</option>
+        </select>
     </div>
     <img src="pin.png" alt="">
   </div>
@@ -29,12 +27,13 @@
           </div>
         </div>
       </div>
-      <div class="interaction" *ngIf="usersService.loggedIn">
-        <!--if project.isUpdateAllowed-->
+      <div class="interaction" *ngIf="usersService.getLoggedUser()?.id == owner_id">
+        <!--if event.isUpdateAllowed-->
         <a class="glyphicon glyphicon-edit" [routerLink]="['update',event.id]"></a>
-        <!--if project.isDeleteAllowed-->
+        <!--if event.isDeleteAllowed-->
         <a class="glyphicon glyphicon-remove" [routerLink]="['remove',event.id]"></a>
       </div>
     </div>
  </div>
+ <a class="btn btn-default"  *ngIf="usersService.loggedIn" routerLink="/events/create">Create EVENT</a>
 </section>

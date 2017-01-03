@@ -5,6 +5,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { Project } from './../../../core/models/project';
 import { User } from './../../../core/models/users';
 import { ProjectsService } from './../../../core/services/projects.service';
+import { UsersService } from './../../../core/services/users.service';
 
 @Component({
   selector: 'app-project-create',
@@ -20,16 +21,17 @@ export class ProjectCreateComponent implements OnInit {
     constructor(
         private projectsService: ProjectsService,
         private router: Router,
-        private notificationsService: NotificationsService
+        private notificationsService: NotificationsService,
+        public usersService: UsersService
     ) { }
 
     ngOnInit() {
-        this.model = new Project(0, '', '', '', '', '', '');
+        this.model = new Project(0, '', '', '', '','', 0, '');
     }
 
     create() {
         const project = new Project(++this.projectsService.lastId, this.model.title, this.model.demo, this.model.github,
-            this.model.createdAt, this.model.isFinished, this.model.image_url);
+            this.model.createdAt, this.model.isFinished, this.usersService.getLoggedUser().id, this.model.image_url);
 
         if (!project) { return; }
         this.projectsService.add(project)
