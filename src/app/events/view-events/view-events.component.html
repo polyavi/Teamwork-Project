@@ -22,12 +22,12 @@
           <div class="main-info">
             <h3>  <a href="/events/{{event.id}}" > {{ event.title }} </a></h3>
               <em *ngIf="event.type"> <span>Type: {{event.type}}</span> </em>
-              <em *ngIf="event.place"> <span>Place: {{event.place}}</span> </em>
+              <em *ngIf="event.where"> <span>Place: {{event.where}}</span> </em>
               <em *ngIf="event.when"> <span>Date and time: {{event.when}}</span> </em>
           </div>
         </div>
       </div>
-      <div class="interaction" *ngIf="usersService.getLoggedUser()?.id == owner_id">
+      <div class="interaction" *ngIf="usersService.getLoggedUser()?.id == event.owner_id">
         <!--if event.isUpdateAllowed-->
         <a class="glyphicon glyphicon-edit" [routerLink]="['update',event.id]"></a>
         <!--if event.isDeleteAllowed-->
