@@ -55,6 +55,22 @@ nav img {
   justify-content: flex-end;
 
 }
+.logout{
+  font-family: arial !important;
+  font-size: 1em !important;
+  margin-left: 20% !important;
+  text-align: center;
+  padding-right: 5px !important;
+}
+.user-info{
+    font-size: 2em !important;
+}
+.main-info ul{
+  padding: 0;
+}
+.main-info li{
+  margin: 10px;
+}
 @media only screen and (min-width: 481px) and (max-width: 900px) {
     .main-nav a, .user a {
         font-size: 1em;
