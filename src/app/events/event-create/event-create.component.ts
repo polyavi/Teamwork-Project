@@ -13,8 +13,6 @@ import { EventsService } from './../../../core/services/events.service';
 })
 export class EventCreateComponent implements OnInit {
     model: Event;
-    events: Event[];
-    title: string;
     @Output('create') emitter: EventEmitter<Event> = new EventEmitter<Event>();
 
     constructor(
@@ -24,11 +22,11 @@ export class EventCreateComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.model = new Event(0, '','', '', '', '', '');
+        this.model = new Event(0, '', '', '', '', '', '');
     }
 
     create() {
-        const event = new Event(++this.eventsService.lastId, this.model.title, this.model.when,'upcoming', this.model.where,
+        const event = new Event(++this.eventsService.lastId, this.model.title, this.model.when, 'upcoming', this.model.where,
            this.model.purpose  , this.model.image_url);
 
         if (!event) { return; }

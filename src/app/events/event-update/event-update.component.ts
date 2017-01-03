@@ -46,8 +46,8 @@ export class EventUpdateComponent implements OnInit {
     }
 
     update() {
-        this.model = new Event(this.id,this.model.title, this.model.when,'upcoming', this.model.where,
-                          this.model.purpose  , this.model.image_url);
+        this.model = new Event(this.id, this.model.title, this.model.when, 'upcoming', this.model.where,
+                          this.model.purpose, this.model.image_url);
         this.eventsService.update(this.model)
                     .then(() => {
                         this.notificationsService.success('Success', 'Event ' + this.model.title + ' has been successfully updated!');

@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Team } from './../../../core/models/team';
 import { User } from './../../../core/models/users';
 import { TeamsService } from './../../../core/services/teams.service';
+import { UsersService } from './../../../core/services/users.service';
+
 import { NotificationsService } from 'angular2-notifications';
 
 @Component({
@@ -24,6 +26,7 @@ export class TeamCreateComponent implements OnInit {
 
     constructor(
         private teamsService: TeamsService,
+        private userService: UsersService,
         private formBuilder: FormBuilder,
         private notificationsService: NotificationsService,
         private router: Router
@@ -42,6 +45,9 @@ export class TeamCreateComponent implements OnInit {
     create(): void {
         const team = new Team(++this.teamsService.lastId, this.model.name, this.model.form, new Date(), this.model.github,
             'enrolling', this.model.image_url, this.model.maxUsers);
+
+        let owner = this.userService.getLoggedUser();
+        team.owner_id = owner.id;
 
         if (!team) { return; }
         this.teamsService.add(team)

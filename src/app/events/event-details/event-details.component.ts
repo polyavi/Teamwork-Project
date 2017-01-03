@@ -14,7 +14,7 @@ import { UsersService } from './../../../core/services/users.service';
 })
 export class EventDetailsComponent implements OnInit {
     model: Event;
-    event: Event;
+    public event: Event;
     public id: number;
     public title: string;
     public owner_id: number;
@@ -22,6 +22,7 @@ export class EventDetailsComponent implements OnInit {
     public where: string;
     public type: string;
     public image_url: string;
+    public purpose: string;
 
     constructor(
       private eventsService: EventsService,
@@ -39,8 +40,9 @@ export class EventDetailsComponent implements OnInit {
                             this.title = event.title;
                             this.when = event.when;
                             this.where = event.where;
-                            this.owner_id = event.owner_id;
+                            // this.owner_id = event.owner_id;
                             this.type = event.type;
+                            this.purpose = event.purpose;
                             this.image_url = event.image_url;
                         });
     }

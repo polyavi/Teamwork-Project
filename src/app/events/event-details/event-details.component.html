@@ -11,10 +11,10 @@
           <img class="prof-img" src="{{ image_url }}" />
           <div class="main-info">
             <h3>{{ title }} </h3>
-            <em *ngIf="type"> <span>{{type}}</span> </em>
-            <em *ngIf="when"> <span>{{when| date : 'fullDate'}}</span> </em>
-            <em *ngIf="where"> <span>{{demo}}</span></em>
-            <em *ngIf="purpose"> <span>Purpose:</span>{{purpose}}</em>
+            <em *ngIf="type"> <span>{{ type }}</span> </em>
+            <em *ngIf="when"> <span>{{ when| date : 'fullDate' }}</span> </em>
+            <em *ngIf="where"> <span>{{ where }}</span></em>
+            <em *ngIf="purpose"> <span>Purpose:</span>{{ purpose }}</em>
           </div>
         </div>
       </div>
