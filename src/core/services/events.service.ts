@@ -9,8 +9,6 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EventsService {
-    projects: Event[] = [];
-
     private eventsUrl = 'api/events';
 
     constructor(private http: Http) {
