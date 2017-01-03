@@ -9,7 +9,7 @@
       <li *ngIf="usersService.loggedIn"><a routerLink="/login">LOG OUT</a></li>
       <li *ngIf="!usersService.loggedIn"><a routerLink="/signin">SIGN IN</a></li>
     </ul>
-    <div class="main-info">
+    <div class="main-info" *ngIf="usersService.loggedIn">
       <ul>
         <li>
           <h3 class="user-info">{{usersService.getLoggedUser()?.firstName}} {{usersService.getLoggedUser()?.lastName}}</h3></li>
