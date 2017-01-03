@@ -23,13 +23,13 @@ Blackboard SPA in which you can:
 
 
 ## Live demo
-[**Blackboard**](https://raw.githack.com)
+[**Blackboard**](https://rawcdn.githack.com/Team-Directive3/Teamwork-Project/rawgit-compatible/index.html)
 ## Link to repository
 [**Github**](https://github.com/Team-Directive3)
 
 ## Video demo
 
-[**YouTube**](https://www.youtube.com)
+[**YouTube**](https://www.youtube.com/watch?v=PaheMz4vFvI)
 
 
 # Teamwork-Project
