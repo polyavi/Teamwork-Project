@@ -19,6 +19,7 @@ export class ProjectUpdateComponent implements OnInit {
     public demo: string;
     public github: string;
     public isFinished: string;
+    public owner_id: number;
     public image_url: string;
 
     @Output('updated') emitter: EventEmitter<Project> = new EventEmitter<Project>();
@@ -42,13 +43,14 @@ export class ProjectUpdateComponent implements OnInit {
                           this.title = team.title;
                           this.demo = team.demo;
                           this.isFinished = team.isFinished;
+                          this.owner_id = team.owner_id;
                           this.image_url = team.image_url;
                       });
         });
     }
 
     update() {
-        this.model = new Project(this.id, this.title, this.createdAt, this.demo, this.github, this.isFinished,this.usersService.getLoggedUser().id, this.image_url);
+        this.model = new Project(this.id, this.title, this.createdAt, this.demo, this.github, this.isFinished,this.usersService.getLoggedUser().id, this.owner_id, this.image_url);
         this.projectsService.update(this.model)
                     .then(() => {
                         this.notificationsService.success('Success', 'Project ' + this.model.title + ' has been successfully updated!');
