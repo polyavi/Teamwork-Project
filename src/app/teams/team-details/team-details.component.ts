@@ -51,8 +51,10 @@ export class TeamDetailsComponent implements OnInit {
                             this.maxUsers = team.maxUsers;
                             this.image_url = team.image_url;
 
-                            let user: User = JSON.parse(localStorage.getItem('user'));
-                            this.isOwner = this.owner_id == user.id;
+                            if (localStorage.getItem('user')) {
+                                let user: User = JSON.parse(localStorage.getItem('user'));
+                                this.isOwner = this.owner_id == user.id;
+                            }
 
                             this.usersService.getById(team.owner_id).subscribe((ownerUser: User) => {
                                 this.Owner = ownerUser;

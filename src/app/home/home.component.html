@@ -17,13 +17,13 @@
         <h2>latest projects</h2>
         <img src="pin.png" alt="">
       </div>
-      <p class="description">Look through the latest projects</p>
+      <p app-change-font-color class="description">Look through the latest projects</p>
       <hr>
       <div class="info-container">
         <div class="short-info" *ngFor="let project of projects | slice:0:4">
           <div class="info-wrapper">
             <div class="img-info-wrap">
-              <img class="prof-img" src="{{ project.image_url }}" />
+              <img app-change-image-with-default class="prof-img" src="{{ project.image_url }}" />
               <div class="main-info">
                 <h3>  <a *ngIf="project.demo" href="{{project.demo}}"> {{ project.title }} </a></h3>
                 <em *ngIf="project.demo"> <span>Demo:</span><a href="{{project.demo}}" target="blank"> {{project.demo}} </a></em>

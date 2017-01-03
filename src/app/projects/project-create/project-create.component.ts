@@ -1,5 +1,6 @@
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 import { Project } from './../../../core/models/project';
 import { User } from './../../../core/models/users';
@@ -18,7 +19,8 @@ export class ProjectCreateComponent implements OnInit {
 
     constructor(
         private projectsService: ProjectsService,
-        private router: Router
+        private router: Router,
+        private notificationsService: NotificationsService
     ) { }
 
     ngOnInit() {
@@ -32,6 +34,7 @@ export class ProjectCreateComponent implements OnInit {
         if (!project) { return; }
         this.projectsService.add(project)
             .then(() => {
+                this.notificationsService.success('Success', 'Project ' + project.title + ' has been successfully created!');
                 this.router.navigate(['./projects']);
             });
 

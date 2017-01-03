@@ -1,5 +1,6 @@
 import { Component, OnInit , EventEmitter, Output} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 import { Project } from './../../../core/models/project';
 import { ProjectsService } from './../../../core/services/projects.service';
@@ -24,7 +25,8 @@ export class ProjectUpdateComponent implements OnInit {
     constructor(
       private projectsService: ProjectsService,
       private route: ActivatedRoute,
-      private router: Router
+      private router: Router,
+      private notificationsService: NotificationsService
     ) { }
 
     ngOnInit() {
@@ -46,9 +48,10 @@ export class ProjectUpdateComponent implements OnInit {
     update() {
         this.model = new Project(this.id, this.title, this.createdAt, this.demo, this.github, this.isFinished, this.image_url);
         this.projectsService.update(this.model)
-          .then(() => {
-                this.router.navigate(['./projects']);
-            });
+                    .then(() => {
+                        this.notificationsService.success('Success', 'Project ' + this.model.title + ' has been successfully updated!');
+                        this.router.navigate(['./projects']);
+                    });
         this.emitter.emit(this.model);
     }
 }

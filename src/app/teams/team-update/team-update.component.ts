@@ -53,7 +53,7 @@ export class TeamUpdateComponent implements OnInit {
     }
 
     update() {
-        this.model = new Team(this.id, this.name, this.form, this.createdAt, this.github, this.isFilled, this.image_url, this.maxUsers);
+        this.model = new Team(this.id, this.name, this.form, this.createdAt, this.github, this.image_url, this.isFilled, this.maxUsers);
         this.teamsService.update(this.model)
             .then(() => {
                 this.notificationsService.success('Team', 'Successfully updated!');

@@ -27,7 +27,7 @@ export class ViewTeamsComponent implements OnInit {
                     this.teams = teams;
                     console.log(teams);
 
-                    let user: User = JSON.parse(localStorage.getItem('user'));
+                    let user: User = this.usersService.getLoggedUser();
                     for (let i = 0; i < teams.length; i++) {
                         teams[i].isOwner = teams[i].owner_id == user.id;
                     }
