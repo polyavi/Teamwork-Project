@@ -1,7 +1,7 @@
 export const EVENTS: any[] = [{
     id: 1,
     title: 'Presentation',
-    type: 'upcomong',
+    type: 'upcoming',
     when: '2017-01-23',
     where: 'Sofia',
     purpose: 'Event purpose',
