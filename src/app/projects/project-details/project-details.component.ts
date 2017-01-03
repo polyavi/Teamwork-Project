@@ -26,7 +26,7 @@ export class ProjectDetailsComponent implements OnInit {
     public image_url: string;
 
     constructor(
-      private projectsService: ProjectsService,
+      public projectsService: ProjectsService,
       private route: ActivatedRoute,
       public usersService: UsersService
     ) { }
@@ -35,7 +35,7 @@ export class ProjectDetailsComponent implements OnInit {
       this.route.params.subscribe(params => {
           this.id = +params['id'];
       });
-
+console.log(this.id);
       this.projectsService.getById(this.id)
                         .subscribe(project => {
                             this.title = project.title;
@@ -47,5 +47,6 @@ export class ProjectDetailsComponent implements OnInit {
                             this.team = project.team;
                             this.image_url = project.image_url;
                         });
+                        console.log(this.id);
     }
 }

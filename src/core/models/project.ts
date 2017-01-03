@@ -3,7 +3,7 @@ import { Team } from './team';
 export class Project {
     id: number;
     title: string;
-    createdAt: string;
+    createdAt: Date;
     demo: string;
     github: string;
     isFinished: string;
@@ -11,7 +11,7 @@ export class Project {
     owner_id: number;
     team: Team;
 
-    constructor(id: number, title: string, demo: string, github: string, createdAt: string, isFinished: string,
+    constructor(id: number, title: string, demo: string, github: string, createdAt: Date, isFinished: string,
                     owner_id: number, image_url: string) {
         this.id = id;
         this.title = title;

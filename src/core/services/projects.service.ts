@@ -29,6 +29,7 @@ export class ProjectsService implements IService {
 
     getById(id: number): Observable<Project> {
         const url = this.projectsUrl + '/' +  id;
+        console.log(id);
         return this.http.get(url)
             .map((res: Response) => res.json().data as Project);
     }
