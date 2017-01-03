@@ -1,0 +1,27 @@
+<section class="project-card">
+  <div class="pins">
+    <img src="pin.png" alt="">
+    <img src="pin.png" alt="">
+  </div>
+  <hr>
+  <div class="info-wrapper">
+    <div class="long-info">
+      <div class="info-wrapper">
+        <div class="img-info-wrap">
+          <img class="prof-img" src="{{ image_url }}" />
+          <div class="main-info">
+            <h3>{{ title }} </h3>
+            <em *ngIf="type"> <span>{{type}}</span> </em>
+            <em *ngIf="when"> <span>{{when| date : 'fullDate'}}</span> </em>
+            <em *ngIf="where"> <span>{{demo}}</span></em>
+            <em *ngIf="purpose"> <span>Purpose:</span>{{purpose}}</em>
+          </div>
+        </div>
+      </div>
+      <div class="interaction" *ngIf="usersService.getLoggedUser()?.id == owner_id">
+        <a [routerLink]="['/events/update',id]" class="glyphicon glyphicon-edit"></a>
+        <a [routerLink]="['/events/remove',id]" class="glyphicon glyphicon-remove"></a>
+      </div>
+    </div>
+ </div>
+</section>

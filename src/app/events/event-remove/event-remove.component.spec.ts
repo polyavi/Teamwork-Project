@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ProjectShortInfoComponent } from './project-short-info.component';
+import { EventRemoveComponent } from './event-remove.component';
 
-describe('ProjectShortInfoComponent', () => {
-  let component: ProjectShortInfoComponent;
-  let fixture: ComponentFixture<ProjectShortInfoComponent>;
+describe('EventUpdateComponent', () => {
+  let component: EventRemoveComponent;
+  let fixture: ComponentFixture<EventRemoveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectShortInfoComponent ]
+      declarations: [ EventRemoveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProjectShortInfoComponent);
+    fixture = TestBed.createComponent(EventRemoveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

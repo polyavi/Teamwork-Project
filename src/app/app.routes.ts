@@ -20,7 +20,11 @@ import {
     ProjectRemoveComponent
 } from './projects';
 import {
-    EventShortInfoComponent
+  EventCreateComponent,
+  EventUpdateComponent,
+  ViewEventsComponent,
+  EventDetailsComponent,
+  EventRemoveComponent
 } from './events';
 
 export const APP_ROUTES: Routes = [
@@ -42,5 +46,10 @@ export const APP_ROUTES: Routes = [
     { path: 'projects/remove/:id', component: ProjectRemoveComponent },
     { path: 'projects/:id', component: ProjectDetailsComponent },
 
-    { path: 'events', component: EventShortInfoComponent },
+    { path: 'events', component: ViewEventsComponent },
+    { path: 'events/create', component: EventCreateComponent },
+    { path: 'events/update/:id', component: EventUpdateComponent },
+    { path: 'events/remove/:id', component: EventRemoveComponent },
+    { path: 'events/:id', component: EventDetailsComponent },
+
 ];

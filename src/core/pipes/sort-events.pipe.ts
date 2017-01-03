@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { Project } from './../models/project';
+import { Event } from './../models/events';
 
 function sortAsc(a: string, b: string) {
     if (isNaN(+a) && isNaN(+b)) {
@@ -16,11 +16,11 @@ function sortDesc(a: string, b: string) {
 
     return +b - +a;
 }
-@Pipe({ name: 'sortProjects', pure: true })
-export class SortProjectsPipe implements PipeTransform {
-    TextStreamBase: Project;
+@Pipe({ name: 'sortEvents', pure: true })
+export class SortEventsPipe implements PipeTransform {
+    TextStreamBase: Event;
 
-    transform(items: any[], sortBy = 'Title', isDesc = true): Project[] {
+    transform(items: any[], sortBy = 'Title'): Event[] {
         if (!items) { return; }
 
         let sortFunc;
@@ -28,7 +28,7 @@ export class SortProjectsPipe implements PipeTransform {
 
         switch (sortBy) {
             case sortingProperties[0]: sortBy = 'title'; sortFunc = sortAsc; break;
-            case sortingProperties[1]: sortBy = 'createdAt'; sortFunc = sortDesc; break;
+            case sortingProperties[1]: sortBy = 'when'; sortFunc = sortDesc; break;
         }
             return items.sort((a, b) => {
                 return sortFunc(a[sortBy].toString(), b[sortBy].toString());

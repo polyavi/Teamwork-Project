@@ -4,6 +4,7 @@ import { NotificationsService } from 'angular2-notifications';
 
 import { Project } from './../../../core/models/project';
 import { ProjectsService } from './../../../core/services/projects.service';
+import { UsersService } from './../../../core/services/users.service';
 
 @Component({
   selector: 'app-project-update',
@@ -26,7 +27,8 @@ export class ProjectUpdateComponent implements OnInit {
       private projectsService: ProjectsService,
       private route: ActivatedRoute,
       private router: Router,
-      private notificationsService: NotificationsService
+      private notificationsService: NotificationsService,
+      public usersService: UsersService
     ) { }
 
     ngOnInit() {
@@ -46,7 +48,7 @@ export class ProjectUpdateComponent implements OnInit {
     }
 
     update() {
-        this.model = new Project(this.id, this.title, this.createdAt, this.demo, this.github, this.isFinished, this.image_url);
+        this.model = new Project(this.id, this.title, this.createdAt, this.demo, this.github, this.isFinished,this.usersService.getLoggedUser().id, this.image_url);
         this.projectsService.update(this.model)
                     .then(() => {
                         this.notificationsService.success('Success', 'Project ' + this.model.title + ' has been successfully updated!');
