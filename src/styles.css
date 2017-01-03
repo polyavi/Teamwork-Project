@@ -20,6 +20,11 @@ body {
   font-family: OneDay;
   src: url(OneDayinMalangbong.otf);
 }
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 a {
   text-decoration: none;

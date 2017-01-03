@@ -18,6 +18,7 @@ export class ProjectDetailsComponent implements OnInit {
     public id: number;
     public title: string;
     public createdAt: string;
+    public owner_id: number;
     public demo: string;
     public github: string;
     public isFinished: string;
@@ -41,6 +42,7 @@ export class ProjectDetailsComponent implements OnInit {
                             this.createdAt = project.createdAt;
                             this.demo = project.demo;
                             this.github = project.github;
+                              this.owner_id = project.owner_id;
                             this.isFinished = project.isFinished;
                             this.team = project.team;
                             this.image_url = project.image_url;

@@ -6,6 +6,7 @@ export const PROJECTS: any[] = [
     demo: 'http://www.directive3.com',
     github: '',
     isFinished: 'finished',
+    owner_id: 1,
     image_url: 'http://blog.ninja-squad.com/assets/images/ng2-ebook/ng2-logo.png',
     team: {
       id: '1',
@@ -53,6 +54,7 @@ export const PROJECTS: any[] = [
     github: 'www.github.com/Directive31',
     isFinished: 'in progress',
     image_url: 'http://blog.ninja-squad.com/assets/images/ng2-ebook/ng2-logo.png',
+    owner_id: 3,
     team: {
       id: '3',
       name: 'Directive3',
@@ -90,6 +92,7 @@ export const PROJECTS: any[] = [
     github: 'www.github.com/RockIt',
     isFinished: 'in progress',
     image_url: 'http://www.mineral-forum.com/message-board/files/hpim6402_672.jpg',
+    owner_id: 3,
     team: {
       id: '3',
       name: 'Directive3',
@@ -127,6 +130,7 @@ export const PROJECTS: any[] = [
     github: 'www.github.com/winterIsComming',
     isFinished: 'in progress',
     image_url: 'https://metrouk2.files.wordpress.com/2015/06/508_promo_stills_900161456-e1433230437146.jpg',
+    owner_id: 2,
     team: {
       id: '4',
       name: 'Brave hearts',
@@ -163,6 +167,7 @@ export const PROJECTS: any[] = [
     github: 'www.github.com/sleepingPeople',
       isFinished: 'finished',
     image_url: 'https://i.ytimg.com/vi/kMb2kDZIrT0/maxresdefault.jpg',
+    owner_id: 2,
     team: {
       id: '6',
       name: 'Something blue',
